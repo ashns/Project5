@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.coffeeController">
+   <children>
+      <ImageView fitHeight="168.0" fitWidth="253.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/tempCoffee.jpg" />
+         </image>
+      </ImageView>
+      <ListView fx:id="coffeeLW" layoutX="337.0" layoutY="23.0" prefHeight="342.0" prefWidth="252.0" />
+      <CheckBox fx:id="creamCB" layoutX="37.0" layoutY="247.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="82.0" text="Cream" />
+      <ComboBox fx:id="sizeCB" layoutX="21.0" layoutY="200.0" prefWidth="150.0" promptText="Select a Size">
+         <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="Short" />
+            <String fx:value="Tall" />
+            <String fx:value="Grande" />
+            <String fx:value="Venti" />
+         </FXCollections>
+      </items></ComboBox>
+      <CheckBox fx:id="syrupCB" layoutX="37.0" layoutY="276.0" mnemonicParsing="false" text="Syrup" />
+      <CheckBox fx:id="milkCB" layoutX="37.0" layoutY="304.0" mnemonicParsing="false" text="Milk" />
+      <CheckBox fx:id="caramelCB" layoutX="37.0" layoutY="332.0" mnemonicParsing="false" text="Caramel" />
+      <CheckBox fx:id="whippedCB" layoutX="127.0" layoutY="247.0" mnemonicParsing="false" text="Whipped Creme" />
+      <ComboBox fx:id="quantityCB" layoutX="181.0" layoutY="200.0" prefHeight="26.0" prefWidth="90.0" promptText="Quantity">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="1" />
+               <String fx:value="2" />
+               <String fx:value="3" />
+               <String fx:value="4" />
+               <String fx:value="5" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <Button fx:id="orderBTN" layoutX="181.0" layoutY="291.0" mnemonicParsing="false" onAction="#pressOrder" prefHeight="26.0" prefWidth="109.0" text="Add to Order" />
+      <Button fx:id="returnBTN" layoutX="181.0" layoutY="359.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="26.0" prefWidth="109.0" text="Return to Main" />
+      <Button fx:id="removeBTN" layoutX="181.0" layoutY="327.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="26.0" prefWidth="109.0" text="Remove Item" />
+      <Label fx:id="priceLabel" layoutX="337.0" layoutY="364.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="325.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.donutController">
+   <children>
+      <ComboBox fx:id="donutTypeCB" layoutX="14.0" layoutY="177.0" onAction="#pressDonutType" prefWidth="150.0" promptText="Select a donut">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Yeast donut" />
+               <String fx:value="Cake donut" />
+               <String fx:value="Donut hole" />
+            </FXCollections>
+         </items>
+      </ComboBox>
+      <ComboBox fx:id="donutFlavorCB" layoutX="199.0" layoutY="177.0" prefWidth="150.0" promptText="Select a flavor">
+
+      </ComboBox>
+      <Button fx:id="orderBTN" layoutX="198.0" layoutY="222.0" mnemonicParsing="false" onAction="#pressOrderBTN" prefHeight="25.0" prefWidth="150.0" text="Add to Order" />
+      <Slider fx:id="quantitySlider" blockIncrement="1.0" layoutX="13.0" layoutY="215.0" majorTickUnit="1.0" max="12.0" min="1.0" minorTickCount="0" prefHeight="38.0" prefWidth="166.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+      <ListView fx:id="currentListView" layoutX="363.0" layoutY="14.0" prefHeight="278.0" prefWidth="166.0" />
+      <ImageView fitHeight="150.0" fitWidth="336.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true">
+         <image>
+            <Image url="@Image/tempDonut.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="returnBTN" layoutX="199.0" layoutY="283.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="150.0" text="Return to Main Menu" />
+      <Button fx:id="removeBTN" layoutX="198.0" layoutY="252.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="26.0" prefWidth="150.0" text="Remove Item" />
+      <Label fx:id="priceLabel" layoutX="363.0" layoutY="296.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.orderController">
+   <children>
+      <ListView fx:id="orderListView" layoutX="129.0" layoutY="15.0" prefHeight="326.0" prefWidth="200.0" />
+      <Label layoutX="14.0" layoutY="15.0" text="Current Order:" />
+      <Button fx:id="placeBTN" layoutX="14.0" layoutY="259.0" mnemonicParsing="false" onAction="#placeOrder" prefHeight="60.0" prefWidth="105.0" text="Place Order" textAlignment="CENTER" />
+      <Button fx:id="removeBTN" layoutX="14.0" layoutY="192.0" mnemonicParsing="false" onAction="#removeItem" prefHeight="60.0" prefWidth="105.0" text="Remove Item" textAlignment="CENTER" />
+      <Button fx:id="returnBTN" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="60.0" prefWidth="105.0" text="Return to Main" textAlignment="CENTER" />
+      <Label fx:id="priceLabel" layoutX="129.0" layoutY="341.0" prefHeight="17.0" prefWidth="200.0" />
+      <Label fx:id="tax" layoutX="129.0" layoutY="359.0" prefHeight="18.0" prefWidth="200.0" />
+      <Label fx:id="taxTotal" layoutX="129.0" layoutY="377.0" prefHeight="18.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

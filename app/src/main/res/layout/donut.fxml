@@ -30,7 +30,7 @@
       <ListView fx:id="currentListView" layoutX="363.0" layoutY="14.0" prefHeight="278.0" prefWidth="166.0" />
       <ImageView fitHeight="150.0" fitWidth="336.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true">
          <image>
-            <Image url="@Image/tempDonut.jpg" />
+            <Image url="@../../java/sample/Image/tempDonut.jpg" />
          </image>
       </ImageView>
       <Button fx:id="returnBTN" layoutX="199.0" layoutY="283.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="150.0" text="Return to Main Menu" />

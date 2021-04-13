@@ -34,7 +34,7 @@
                      <graphic>
                         <ImageView fx:id="donutImageV" fitHeight="111.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Image/tempDonut.jpg" />
+                              <Image url="@../../java/sample/Image/tempDonut.jpg" />
                            </image></ImageView>
                      </graphic>
                   </Button>
@@ -42,7 +42,7 @@
                      <graphic>
                         <ImageView fx:id="coffeeImageV" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Image/tempCoffee.jpg" />
+                              <Image url="@../../java/sample/Image/tempCoffee.jpg" />
                            </image></ImageView>
                      </graphic>
                   </Button>

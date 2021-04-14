@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
  * Provides accessor methods: getType
  * @author Ashley Stankovits, Matthew Walker
  */
-public class donutController {
+public class donutActivity {
     @FXML
     public ComboBox donutTypeCB;
     @FXML

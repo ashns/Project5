@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 
 /**
  * This class defines the menu item of type donut to hold all the

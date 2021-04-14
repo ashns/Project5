@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 
 /**
  * This class defines the menu item of type coffee to hold all the
@@ -8,7 +8,7 @@ package sample;
  * addonprice
  * @author Ashley Stankovits, Matthew Walker
  */
-public class Coffee extends MenuItem implements Customizable{
+public class Coffee extends MenuItem implements Customizable {
 
     final int SIZE_SHORT = 1;
     final int SIZE_TALL = 2;

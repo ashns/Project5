@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 
 /**
  * This class defines menu item which is the parent type for

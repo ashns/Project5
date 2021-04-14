@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,7 +47,7 @@ public class Controller {
             Stage stage = new Stage();
             stage.setTitle("Order Donut");
             stage.setScene(new Scene(root1));
-            donutController sub = fxmlLoader.getController();
+            donutActivity sub = fxmlLoader.getController();
             sub.setMainController(this);
             stage.show();
         } catch (Exception e) {
@@ -68,7 +68,7 @@ public class Controller {
             Stage stage = new Stage();
             stage.setTitle("Order Coffee");
             stage.setScene(new Scene(root1));
-            coffeeController sub = fxmlLoader.getController();
+            coffeeActivity sub = fxmlLoader.getController();
             sub.setMainController(this);
             stage.show();
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class Controller {
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            orderController sub = fxmlLoader.getController();
+            orderActivity sub = fxmlLoader.getController();
             sub.setMainController(this);
             stage.show();
         } catch (Exception e) {
@@ -108,7 +108,7 @@ public class Controller {
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            storeOrderController sub = fxmlLoader.getController();
+            storeOrderActivity sub = fxmlLoader.getController();
             sub.setMainController(this);
             stage.show();
         } catch (Exception e) {

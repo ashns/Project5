@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +18,7 @@ import java.io.PrintWriter;
  * pressExport
  * @author Ashley Stankovits, Matthew Walker
  */
-public class storeOrderController {
+public class storeOrderActivity {
     @FXML
     public Button returnBTN;
     @FXML

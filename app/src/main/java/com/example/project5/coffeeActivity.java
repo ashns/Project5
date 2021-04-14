@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -18,7 +18,7 @@ import java.text.DecimalFormat;
  * Provides accessor methods: getInformation
  * @author Ashley Stankovits, Matthew Walker
  */
-public class coffeeController {
+public class coffeeActivity {
     @FXML
     public Button returnBTN;
     @FXML

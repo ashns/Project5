@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 
 /**
  * This class is responsible for the array which holds the store orders.

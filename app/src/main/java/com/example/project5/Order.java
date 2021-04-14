@@ -1,4 +1,5 @@
-package sample;
+package com.example.project5;
+
 import java.text.DecimalFormat;
 
 /**

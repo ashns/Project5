@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 
 /**
  * This is the given interface Customizable which contained the

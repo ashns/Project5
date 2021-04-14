@@ -1,4 +1,4 @@
-package sample;
+package com.example.project5;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,7 +15,7 @@ import java.text.DecimalFormat;
  * displayOrder, updatePrice
  * @author Ashley Stankovits, Matthew Walker
  */
-public class orderController {
+public class orderActivity {
     @FXML
     public Button returnBTN;
     @FXML

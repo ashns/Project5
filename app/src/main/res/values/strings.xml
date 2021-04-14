@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Project5</string>
+    <string name="donut">Donuts</string>
+    <string name="coffee">Coffee</string>
+    <string name="order">Review Order</string>
+    <string name="storeOrder">All Orders</string>
+    <string name="welcome">Welcome to the Rutgers Cafe(tm) mobile app!</string>
 </resources>

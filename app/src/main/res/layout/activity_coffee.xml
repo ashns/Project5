@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="250dp"
+            android:layout_height="171dp" app:srcCompat="@drawable/tempcoffee" android:id="@+id/imageView"
+            tools:layout_editor_absoluteY="16dp" tools:layout_editor_absoluteX="80dp"/>
+    <RadioGroup
+            android:layout_width="149dp"
+            android:layout_height="134dp" tools:layout_editor_absoluteY="221dp"
+            tools:layout_editor_absoluteX="26dp">
+        <RadioButton
+                android:text="Short"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/radioButton4"/>
+        <RadioButton
+                android:text="Tall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/radioButton"/>
+        <RadioButton
+                android:text="Grande"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/radioButton2"/>
+        <RadioButton
+                android:text="Venti"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/radioButton3"/>
+    </RadioGroup>
+    <CheckBox
+            android:text="Cream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/checkBox" tools:layout_editor_absoluteY="381dp"
+            tools:layout_editor_absoluteX="26dp"/>
+    <CheckBox
+            android:text="Milk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/checkBox2" tools:layout_editor_absoluteY="381dp"
+            tools:layout_editor_absoluteX="100dp"/>
+    <CheckBox
+            android:text="Sugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/checkBox3" tools:layout_editor_absoluteY="413dp"
+            tools:layout_editor_absoluteX="26dp"/>
+    <CheckBox
+            android:text="Syrup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/checkBox4" tools:layout_editor_absoluteY="413dp"
+            tools:layout_editor_absoluteX="100dp"/>
+    <CheckBox
+            android:text="Whipped Cream"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/checkBox5" tools:layout_editor_absoluteY="445dp"
+            tools:layout_editor_absoluteX="26dp"/>
+    <ListView
+            android:layout_width="211dp"
+            android:layout_height="404dp" tools:layout_editor_absoluteY="196dp" tools:layout_editor_absoluteX="186dp"/>
+    <Button
+            android:text="Add to Order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button" tools:layout_editor_absoluteY="635dp"
+            tools:layout_editor_absoluteX="37dp"/>
+    <Button
+            android:text="Remove Item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button2" tools:layout_editor_absoluteY="635dp"
+            tools:layout_editor_absoluteX="234dp"/>
+    <Spinner
+            android:layout_width="123dp"
+            android:layout_height="31dp" tools:layout_editor_absoluteX="30dp" android:id="@+id/spinner"
+            tools:layout_editor_absoluteY="502dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                                   android:layout_height="match_parent">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/tempdonut" android:id="@+id/imageView3"
+            tools:layout_editor_absoluteY="33dp" tools:layout_editor_absoluteX="55dp"/>
+    <RadioGroup
+            android:layout_width="134dp"
+            android:layout_height="105dp" tools:layout_editor_absoluteY="234dp"
+            tools:layout_editor_absoluteX="40dp">
+        <RadioButton
+                android:text="Yeast Donut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/radioButton5"/>
+        <RadioButton
+                android:text="Cake Donut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/radioButton6"/>
+        <RadioButton
+                android:text="Donut Hole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/radioButton7"/>
+    </RadioGroup>
+    <Spinner
+            android:layout_width="137dp"
+            android:layout_height="33dp" tools:layout_editor_absoluteX="25dp" android:id="@+id/spinner2"
+            tools:layout_editor_absoluteY="363dp"/>
+    <Spinner
+            android:layout_width="143dp"
+            android:layout_height="27dp" tools:layout_editor_absoluteX="25dp" android:id="@+id/spinner3"
+            tools:layout_editor_absoluteY="433dp"/>
+    <ListView
+            android:layout_width="216dp"
+            android:layout_height="376dp" tools:layout_editor_absoluteY="211dp" tools:layout_editor_absoluteX="180dp"/>
+    <Button
+            android:text="Add to Order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button3" tools:layout_editor_absoluteY="628dp"
+            tools:layout_editor_absoluteX="46dp"/>
+    <Button
+            android:text="Remove "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button4" tools:layout_editor_absoluteY="628dp"
+            tools:layout_editor_absoluteX="240dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

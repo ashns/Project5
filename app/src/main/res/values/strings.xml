@@ -9,4 +9,6 @@
     <string name="removeItem">Remove Item</string>
     <string name="placeOrder">Place order</string>
     <string name="returnMain">Return to Main Menu</string>
+    <string name="storeOrderHeader">Current Orders</string>
+    <string name="removeOrder">Remove Order</string>
 </resources>

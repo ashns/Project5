@@ -1,14 +1,5 @@
 package com.example.project5;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
-import javafx.scene.image.ImageView;
-
 /**
  * The controller class responds to all input from the main UI with appropriate
  * calls to methods in other classes.

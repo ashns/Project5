@@ -1,10 +1,4 @@
 package com.example.project5;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
 /**
  * This class is the main class which runs the UI.
  * @author Ashley Stankovits, Matthew Walker

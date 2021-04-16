@@ -19,8 +19,12 @@ import android.widget.Button;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
-            }
+        }
 
+        @Override
+        protected void onDestroy() {
+            super.onDestroy();
+        }
 
         public void showDonut(View view) {
             setContentView(R.layout.activity_donuts);
@@ -28,6 +32,13 @@ import android.widget.Button;
 
             // intent.putExtra("ORDER", currentOrder);
             startActivity(intent);
-            }
+        }
 
+        public void showCoffee(View view) {
+            setContentView(R.layout.activity_coffee);
+            Intent intent = new Intent(this, CoffeeActivity.class);
+
+            // intent.putExtra("ORDER", currentOrder);
+            startActivity(intent);
+        }
 }

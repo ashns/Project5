@@ -55,7 +55,7 @@ public class DonutActivity extends Activity {
      * This method removes an item from the order list when a user clicks
      * the remove item button and the updates the ListView to also remove
      * that item.
-     * @param event which is the user clicking the remove button.
+     * @param view which is the user clicking the remove button.
      */
     public void removeItem(View view){
         try {

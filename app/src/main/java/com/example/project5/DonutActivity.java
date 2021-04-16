@@ -2,10 +2,10 @@ package com.example.project5;
 
 import android.app.Activity;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.RadioGroup;
 
 import java.text.DecimalFormat;
-import android.view.View.OnClickListener;
 import android.widget.Spinner;
 
 import static java.lang.Integer.parseInt;
@@ -20,19 +20,18 @@ public class DonutActivity extends Activity {
     int type;
     Spinner quantitySpinner = (Spinner) findViewById(R.id.spinner3);
     Spinner flavorSpinner = (Spinner) findViewById(R.id.spinner2);
+    ListView donutLW = (ListView) findViewById(R.id.donutLW);
     public void addDonut(View view) {
         try {
             String flavor = flavorSpinner.getSelectedItem().toString();
             int quantity = parseInt(quantitySpinner.getSelectedItem().toString());
             Donut newDonut = new Donut(quantity, flavor, type);
             main.currentOrder.add(newDonut);
-            currentListView.getItems().add(newDonut);
+            donutLW.add(newDonut);
             updatePrice();
 
         }catch(Exception e) {
-            Alert nullValues = new Alert(Alert.AlertType.ERROR, "Please enter valid donut type or flavor.");
-            nullValues.setTitle("Error");
-            nullValues.show();
+
         }
     }
 
@@ -51,5 +50,39 @@ public class DonutActivity extends Activity {
                 break;
         }
     }
+
+    /**
+     * This method removes an item from the order list when a user clicks
+     * the remove item button and the updates the ListView to also remove
+     * that item.
+     * @param event which is the user clicking the remove button.
+     */
+    public void removeItem(View view){
+        try {
+            int index = donutLW.getSelectedItemPosition();
+            main.currentOrder.remove(index);
+            donutLW.getItems().remove(index); donutLW.
+            updatePrice();
+            donutLW.getSelectedItem();
+        }
+        catch (Exception e){
+
+
+        }
+    }
+
+    /**
+     * This method is used when the donut fxml is initialized to update
+     * the ListView to contain up to date order information.
+     */
+    public void displayOrder(){
+        current = currentOrder.getItems();
+        for(int i = 0; i < current.length; i++){
+            if(current[i] != null)
+                donutLW.getItems().add(current[i]);
+        }
+        updatePrice();
+    }
+
 
 }

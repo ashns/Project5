@@ -57,7 +57,7 @@
             android:layout_marginStart="6dp" app:layout_constraintStart_toEndOf="@+id/donutTypeRB"
             android:layout_marginBottom="52dp" app:layout_constraintBottom_toTopOf="@+id/button4"
             android:layout_marginEnd="15dp" android:layout_marginRight="15dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/donutLW"/>
     <Button
             android:text="Add to Order"
             android:layout_width="wrap_content"

@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Button;
 
     public class MainActivity extends AppCompatActivity {
 
 
         public StoreOrders currentStoreOrders = new StoreOrders();
         public Order currentOrder = new Order();
+
+        public Button donutBTN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,8 @@ import androidx.appcompat.app.AppCompatActivity;
     public void showDonut(View view) {
         setContentView(R.layout.activity_donuts);
         Intent intent = new Intent(this, DonutActivity.class);
-    //    intent.putExtra("ORDER", currentOrder);
+
+       // intent.putExtra("ORDER", currentOrder);
         startActivity(intent);
         }
 }

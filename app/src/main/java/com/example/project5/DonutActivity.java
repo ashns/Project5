@@ -1,6 +1,8 @@
 package com.example.project5;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RadioGroup;
@@ -18,17 +20,27 @@ public class DonutActivity extends Activity {
     private MenuItem current[];
     DecimalFormat usd = new DecimalFormat("#.##");
     int type;
+    Order currentOrder;
     Spinner quantitySpinner = (Spinner) findViewById(R.id.spinner3);
     Spinner flavorSpinner = (Spinner) findViewById(R.id.spinner2);
     ListView donutLW = (ListView) findViewById(R.id.donutLW);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_donuts);
+        Intent intent = getIntent();
+        currentOrder = (Order) intent.getSerializableExtra("ORDER");
+    }
+
     public void addDonut(View view) {
         try {
             String flavor = flavorSpinner.getSelectedItem().toString();
             int quantity = parseInt(quantitySpinner.getSelectedItem().toString());
             Donut newDonut = new Donut(quantity, flavor, type);
-            main.currentOrder.add(newDonut);
-            donutLW.add(newDonut);
-            updatePrice();
+            currentOrder.add(newDonut);
+        //    donutLW.add(newDonut);
+          //  updatePrice();
 
         }catch(Exception e) {
 
@@ -60,9 +72,9 @@ public class DonutActivity extends Activity {
     public void removeItem(View view){
         try {
             int index = donutLW.getSelectedItemPosition();
-            main.currentOrder.remove(index);
-            donutLW.getItems().remove(index); donutLW.
-            updatePrice();
+            currentOrder.remove(index);
+           // donutLW.getItems().remove(index); donutLW.
+        //    updatePrice();
             donutLW.getSelectedItem();
         }
         catch (Exception e){
@@ -79,9 +91,9 @@ public class DonutActivity extends Activity {
         current = currentOrder.getItems();
         for(int i = 0; i < current.length; i++){
             if(current[i] != null)
-                donutLW.getItems().add(current[i]);
+               // donutLW.getItems().add(current[i]);
         }
-        updatePrice();
+       // updatePrice();
     }
 
 

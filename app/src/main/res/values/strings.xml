@@ -11,4 +11,5 @@
     <string name="returnMain">Return to Main Menu</string>
     <string name="storeOrderHeader">Current Orders</string>
     <string name="removeOrder">Remove Order</string>
+    <string name="RLogo">The Rutgers Logo</string>
 </resources>

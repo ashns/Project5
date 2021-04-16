@@ -21,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
     public void showDonut(View view) {
         setContentView(R.layout.activity_donuts);
         Intent intent = new Intent(this, DonutActivity.class);
-        intent.putExtra("ORDER", currentOrder);
+    //    intent.putExtra("ORDER", currentOrder);
         startActivity(intent);
         }
 }

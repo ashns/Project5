@@ -87,14 +87,14 @@ public class DonutActivity extends Activity {
      * This method is used when the donut fxml is initialized to update
      * the ListView to contain up to date order information.
      */
-    public void displayOrder(){
+    public void displayOrder() {
         current = currentOrder.getItems();
-        for(int i = 0; i < current.length; i++){
-            if(current[i] != null){
-               // donutLW.getItems().add(current[i]);
+        for (int i = 0; i < current.length; i++) {
+            if (current[i] != null) {
+                // donutLW.getItems().add(current[i]);
+            }
+            // updatePrice();
         }
-       // updatePrice();
+
     }
-
-
 }

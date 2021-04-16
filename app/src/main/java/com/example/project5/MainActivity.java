@@ -41,4 +41,20 @@ import android.widget.Button;
             // intent.putExtra("ORDER", currentOrder);
             startActivity(intent);
         }
+
+        public void showOrder(View view) {
+            setContentView(R.layout.activity_order);
+            Intent intent = new Intent(this, OrderActivity.class);
+
+            // intent.putExtra("ORDER", currentOrder);
+            startActivity(intent);
+        }
+
+        public void showStoreOrder(View view) {
+            setContentView(R.layout.activity_store_order);
+            Intent intent = new Intent(this, StoreOrderActivity.class);
+
+            // intent.putExtra("ORDER", currentOrder);
+            startActivity(intent);
+        }
 }

@@ -18,9 +18,30 @@
         </activity>
         <activity android:name="DonutActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.CALL"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+
+            </intent-filter>
+        </activity>
+        <activity android:name="CoffeeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CALL"/>
+
+
+            </intent-filter>
+        </activity>
+        <activity android:name="OrderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CALL"/>
+
+
+            </intent-filter>
+        </activity>
+        <activity android:name="StoreOrderActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CALL"/>
+
+
             </intent-filter>
         </activity>
     </application>

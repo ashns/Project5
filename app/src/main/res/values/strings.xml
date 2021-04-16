@@ -12,4 +12,19 @@
     <string name="storeOrderHeader">Current Orders</string>
     <string name="removeOrder">Remove Order</string>
     <string name="RLogo">The Rutgers Logo</string>
+    <string name="addOrder">Add to Order</string>
+    <string name="yeast">Yeast Donut</string>
+    <string name="cake">Cake Donut</string>
+    <string name="donutHole">Donut Hole</string>
+    <string name="tallSize">Tall</string>
+    <string name="shortSize">Short</string>
+    <string name="grandeSize">Grande</string>
+    <string name="ventiSize">Venti</string>
+    <string name="milk">Milk</string>
+    <string name="cream">Cream</string>
+    <string name="sugar">Sugar</string>
+    <string name="caramel">Caramel</string>
+    <string name="syrup">Syrup</string>
+    <string name="whippedcreme">Whipped Creme</string>
+
 </resources>

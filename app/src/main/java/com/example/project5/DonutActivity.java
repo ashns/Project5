@@ -90,7 +90,7 @@ public class DonutActivity extends Activity {
     public void displayOrder(){
         current = currentOrder.getItems();
         for(int i = 0; i < current.length; i++){
-            if(current[i] != null)
+            if(current[i] != null){
                // donutLW.getItems().add(current[i]);
         }
        // updatePrice();

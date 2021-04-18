@@ -28,7 +28,7 @@ import android.widget.Button;
         }
 
         public void showDonut(View view) {
-            setContentView(R.layout.activity_donuts);
+
             Intent intent = new Intent(this, DonutActivity.class);
 
             // intent.putExtra("ORDER", currentOrder);
@@ -36,7 +36,7 @@ import android.widget.Button;
         }
 
         public void showCoffee(View view) {
-            setContentView(R.layout.activity_coffee);
+
             Intent intent = new Intent(this, CoffeeActivity.class);
 
             // intent.putExtra("ORDER", currentOrder);
@@ -44,7 +44,7 @@ import android.widget.Button;
         }
 
         public void showOrder(View view) {
-            setContentView(R.layout.activity_orders);
+
             Intent intent = new Intent(this, OrderActivity.class);
 
             // intent.putExtra("ORDER", currentOrder);
@@ -52,8 +52,8 @@ import android.widget.Button;
         }
 
         public void showStoreOrder(View view) {
-            setContentView(R.layout.activity_store_orders);
-            Intent intent = new Intent(this, StoreOrderActivity.class);
+
+            Intent intent = new Intent(getApplicationContext(), StoreOrderActivity.class);
 
             // intent.putExtra("ORDER", currentOrder);
             startActivity(intent);

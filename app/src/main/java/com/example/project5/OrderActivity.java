@@ -10,6 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 
 public class OrderActivity extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_orders);
+    }
+
     public void MainReturn(View view){
         setContentView(R.layout.activity_main);
         Intent intent = new Intent(this, MainActivity.class);

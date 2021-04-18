@@ -28,7 +28,7 @@
             android:layout_height="73dp" android:id="@+id/returnBTN"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="56dp"/>
+            android:layout_marginBottom="56dp" android:onClick="returnToMain"/>
     <Button
             android:text="@string/removeOrder"
             android:layout_width="369dp"

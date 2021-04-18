@@ -27,7 +27,7 @@
             android:layout_width="369dp"
             android:layout_height="73dp" android:id="@+id/returnBTN"
             app:layout_constraintTop_toBottomOf="@+id/placeBTN" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:onClick="MainReturn"/>
+            app:layout_constraintStart_toStartOf="parent" android:onClick="returnToMain"/>
     <Button
             android:text="@string/placeOrder"
             android:layout_width="369dp"

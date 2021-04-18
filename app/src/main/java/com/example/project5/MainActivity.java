@@ -23,12 +23,16 @@ import android.widget.Button;
         }
 
         @Override
+        protected void onResume() {
+            super.onResume();
+        }
+
+        @Override
         protected void onDestroy() {
             super.onDestroy();
         }
 
         public void showDonut(View view) {
-
             Intent intent = new Intent(this, DonutActivity.class);
 
             intent.putExtra("ORDER", currentOrder);

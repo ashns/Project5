@@ -2,7 +2,7 @@ package com.example.project5;
 
 import android.app.Activity;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
+import android.view.View;
 
 public class StoreOrderActivity extends Activity {
     @Override
@@ -10,4 +10,15 @@ public class StoreOrderActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_orders);
     }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+    }
+
+    public void returnToMain(View view){
+        finish();
+    }
+
+
 }

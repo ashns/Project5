@@ -31,7 +31,7 @@ import android.widget.Button;
 
             Intent intent = new Intent(this, DonutActivity.class);
 
-            // intent.putExtra("ORDER", currentOrder);
+            intent.putExtra("ORDER", currentOrder);
             startActivity(intent);
         }
 
@@ -39,7 +39,7 @@ import android.widget.Button;
 
             Intent intent = new Intent(this, CoffeeActivity.class);
 
-            // intent.putExtra("ORDER", currentOrder);
+            intent.putExtra("ORDER", currentOrder);
             startActivity(intent);
         }
 
@@ -47,7 +47,7 @@ import android.widget.Button;
 
             Intent intent = new Intent(this, OrderActivity.class);
 
-            // intent.putExtra("ORDER", currentOrder);
+            intent.putExtra("ORDER", currentOrder);
             startActivity(intent);
         }
 
@@ -55,7 +55,7 @@ import android.widget.Button;
 
             Intent intent = new Intent(getApplicationContext(), StoreOrderActivity.class);
 
-            // intent.putExtra("ORDER", currentOrder);
+            intent.putExtra("ORDER", currentOrder);
             startActivity(intent);
 
         }

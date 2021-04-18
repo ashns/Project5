@@ -38,11 +38,7 @@
             </intent-filter>
         </activity>
         <activity android:name="StoreOrderActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.CALL"/>
 
-
-            </intent-filter>
         </activity>
     </application>
 

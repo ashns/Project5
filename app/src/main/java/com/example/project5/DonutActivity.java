@@ -30,10 +30,10 @@ public class DonutActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donuts);
-        Spinner quantitySpinner = findViewById(R.id.spinner3);
-        Spinner flavorSpinner = findViewById(R.id.spinner2);
-        ListView donutLW = findViewById(R.id.donutLW);
-        RadioGroup rg = findViewById(R.id.donutTypeRB);
+         quantitySpinner = findViewById(R.id.spinner3);
+        flavorSpinner = findViewById(R.id.spinner2);
+        donutLW = findViewById(R.id.donutLW);
+         rg = findViewById(R.id.donutTypeRB);
         currentOrder = (Order) getIntent().getSerializableExtra("ORDER");
     }
 

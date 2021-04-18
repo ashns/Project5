@@ -1,5 +1,6 @@
 package com.example.project5;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 
 /**
@@ -8,7 +9,7 @@ import java.text.DecimalFormat;
  * Provides accessor methods: getNumber, getItems, orderPrice
  * @author Ashley Stankovits, Matthew Walker
  */
-public class Order implements Customizable{
+public class Order implements Customizable, Serializable {
 
     final int NOT_FOUND = -1;
     final double SALES_TAX = 0.06625;

@@ -16,11 +16,4 @@ public class OrderActivity extends Activity {
         setContentView(R.layout.activity_orders);
     }
 
-    public void MainReturn(View view){
-        setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this, MainActivity.class);
-
-        // intent.putExtra("ORDER", currentOrder);
-        startActivity(intent);
-    }
 }

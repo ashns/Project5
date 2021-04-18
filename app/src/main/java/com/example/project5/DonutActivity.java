@@ -21,16 +21,19 @@ public class DonutActivity extends Activity {
     DecimalFormat usd = new DecimalFormat("#.##");
     int type;
     Order currentOrder;
-    Spinner quantitySpinner = (Spinner) findViewById(R.id.spinner3);
-    Spinner flavorSpinner = (Spinner) findViewById(R.id.spinner2);
-    ListView donutLW = (ListView) findViewById(R.id.donutLW);
-    RadioGroup rg = (RadioGroup) findViewById(R.id.donutTypeRB);
+    Spinner quantitySpinner;
+    Spinner flavorSpinner;
+    ListView donutLW ;
+    RadioGroup rg ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donuts);
-
+        Spinner quantitySpinner = findViewById(R.id.spinner3);
+        Spinner flavorSpinner = findViewById(R.id.spinner2);
+        ListView donutLW = findViewById(R.id.donutLW);
+        RadioGroup rg = findViewById(R.id.donutTypeRB);
         currentOrder = (Order) getIntent().getSerializableExtra("ORDER");
     }
 
@@ -40,8 +43,8 @@ public class DonutActivity extends Activity {
             int quantity = parseInt(quantitySpinner.getSelectedItem().toString());
             Donut newDonut = new Donut(quantity, flavor, type);
             currentOrder.add(newDonut);
-        //    donutLW.add(newDonut);
-          //  updatePrice();
+            //    donutLW.add(newDonut);
+            //  updatePrice();
 
         }catch(Exception e) {
 
@@ -50,7 +53,7 @@ public class DonutActivity extends Activity {
 
 
 
-        public void onCheckedChanged(RadioGroup group, int checkedId) {
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch(checkedId){
             case R.id.radioButton5:
                 type = YEAST_DONUT;
@@ -74,8 +77,8 @@ public class DonutActivity extends Activity {
         try {
             int index = donutLW.getSelectedItemPosition();
             currentOrder.remove(index);
-           // donutLW.getItems().remove(index); donutLW.
-        //    updatePrice();
+            // donutLW.getItems().remove(index); donutLW.
+            //    updatePrice();
             donutLW.getSelectedItem();
         }
         catch (Exception e){
@@ -96,6 +99,7 @@ public class DonutActivity extends Activity {
             }
             // updatePrice();
         }
-
     }
+
+
 }

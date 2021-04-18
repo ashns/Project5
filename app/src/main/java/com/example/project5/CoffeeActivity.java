@@ -16,18 +16,18 @@ public class CoffeeActivity extends Activity {
     public Order currentOrder = new Order();
     private MenuItem current[];
     DecimalFormat usd = new DecimalFormat("#.##");
-    RadioGroup rg = (RadioGroup) findViewById(R.id.coffeeSize);
-    CheckBox creamCB = (CheckBox) findViewById(R.id.creamCB);
-    CheckBox milkCB = (CheckBox) findViewById(R.id.milkCB);
-    CheckBox syrupCB = (CheckBox) findViewById(R.id.syrupCB);
-    CheckBox caramelCB = (CheckBox) findViewById(R.id.caramelCB);
-    CheckBox whippedcremeCB = (CheckBox) findViewById(R.id.whippedcremeCB);
-    Spinner quantitySpinner = (Spinner) findViewById(R.id.quantitySpinner);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coffee);
+        RadioGroup rg = (RadioGroup) findViewById(R.id.coffeeSize);
+        CheckBox creamCB = (CheckBox) findViewById(R.id.creamCB);
+        CheckBox milkCB = (CheckBox) findViewById(R.id.milkCB);
+        CheckBox syrupCB = (CheckBox) findViewById(R.id.syrupCB);
+        CheckBox caramelCB = (CheckBox) findViewById(R.id.caramelCB);
+        CheckBox whippedcremeCB = (CheckBox) findViewById(R.id.whippedcremeCB);
+        Spinner quantitySpinner = (Spinner) findViewById(R.id.quantitySpinner);
     }
 
     /**

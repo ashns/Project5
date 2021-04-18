@@ -14,7 +14,7 @@
             android:layout_marginEnd="55dp"
             android:layout_marginRight="55dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.028"/>
+            app:layout_constraintVertical_bias="0.028" android:contentDescription="donuts"/>
     <RadioGroup
             android:layout_width="134dp"
             android:layout_height="105dp"

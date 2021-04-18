@@ -16,4 +16,8 @@ public class OrderActivity extends Activity {
         setContentView(R.layout.activity_orders);
     }
 
+    public void returnToMain(View view){
+        finish();
+    }
+
 }

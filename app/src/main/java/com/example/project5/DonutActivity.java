@@ -24,13 +24,14 @@ public class DonutActivity extends Activity {
     Spinner quantitySpinner = (Spinner) findViewById(R.id.spinner3);
     Spinner flavorSpinner = (Spinner) findViewById(R.id.spinner2);
     ListView donutLW = (ListView) findViewById(R.id.donutLW);
+    RadioGroup rg = (RadioGroup) findViewById(R.id.donutTypeRB);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donuts);
-        Intent intent = getIntent();
-        currentOrder = (Order) intent.getSerializableExtra("ORDER");
+
+        currentOrder = (Order) getIntent().getSerializableExtra("ORDER");
     }
 
     public void addDonut(View view) {
@@ -47,7 +48,7 @@ public class DonutActivity extends Activity {
         }
     }
 
-    RadioGroup rg = (RadioGroup) findViewById(R.id.donutTypeRB);
+
 
         public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch(checkedId){

@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.widget.Spinner;
 
 import static java.lang.Integer.parseInt;
@@ -35,7 +39,25 @@ public class DonutActivity extends Activity {
         donutLW = findViewById(R.id.donutLW);
          rg = findViewById(R.id.donutTypeRB);
         currentOrder = (Order) getIntent().getSerializableExtra("ORDER");
+        // Spinner Drop down elements
+        List<String> donutFlavors = new ArrayList<String>();
+        donutFlavors.add("Vanilla");
+        donutFlavors.add("Chocolate");
+        donutFlavors.add("Strawberry");
+        donutFlavors.add("Oreo");
+        donutFlavors.add("Smores");
+        donutFlavors.add("Coconut");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, donutFlavors);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        flavorSpinner.setAdapter(dataAdapter);
     }
+
 
     public void addDonut(View view) {
         try {

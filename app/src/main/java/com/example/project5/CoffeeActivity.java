@@ -3,11 +3,14 @@ package com.example.project5;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CoffeeActivity extends Activity {
 
@@ -35,6 +38,9 @@ public class CoffeeActivity extends Activity {
         caramelCB = (CheckBox) findViewById(R.id.caramelCB);
         whippedcremeCB = (CheckBox) findViewById(R.id.whippedcremeCB);
         quantitySpinner = (Spinner) findViewById(R.id.quantitySpinner);
+
+        quantitySpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+
     }
 
     /**

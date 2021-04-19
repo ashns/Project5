@@ -47,15 +47,24 @@ public class DonutActivity extends Activity {
         donutFlavors.add("Oreo");
         donutFlavors.add("Smores");
         donutFlavors.add("Coconut");
-
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, donutFlavors);
-
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         // attaching data adapter to spinner
         flavorSpinner.setAdapter(dataAdapter);
+
+        List<String> quantities = new ArrayList<String>();
+        quantities.add("1");
+        quantities.add("2");
+        quantities.add("3");
+        quantities.add("4");
+        quantities.add("5");
+        quantities.add("6");
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, quantities);
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        quantitySpinner.setAdapter(dataAdapter);
     }
 
 

@@ -27,6 +27,7 @@ public class CoffeeActivity extends Activity {
     CheckBox whippedcremeCB;
     Spinner quantitySpinner;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +38,7 @@ public class CoffeeActivity extends Activity {
         syrupCB = (CheckBox) findViewById(R.id.syrupCB);
         caramelCB = (CheckBox) findViewById(R.id.caramelCB);
         whippedcremeCB = (CheckBox) findViewById(R.id.whippedcremeCB);
-        quantitySpinner = (Spinner) findViewById(R.id.quantitySpinner);
-
+        quantitySpinner = (Spinner) findViewById(R.id.spinner3);
         quantitySpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
 
     }

@@ -43,7 +43,8 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="32dp"
             android:layout_marginStart="32dp" android:layout_marginBottom="37dp"
             app:layout_constraintBottom_toTopOf="@+id/spinner3" app:layout_constraintEnd_toStartOf="@+id/_dynamic"
-            android:layout_marginEnd="18dp" android:layout_marginRight="18dp"/>
+            android:layout_marginEnd="18dp" android:layout_marginRight="18dp"
+            android:contentDescription="Select Donut Type"/>
     <Spinner
             android:layout_width="143dp"
             android:layout_height="27dp" android:id="@+id/spinner3"

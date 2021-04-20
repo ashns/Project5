@@ -64,7 +64,9 @@ public class DonutActivity extends Activity {
         ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, quantities);
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        quantitySpinner.setAdapter(dataAdapter);
+        quantitySpinner.setPrompt("Select a Quantity");
+        quantitySpinner.setAdapter(dataAdapter2);
+
     }
 
 

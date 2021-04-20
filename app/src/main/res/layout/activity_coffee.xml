@@ -94,7 +94,7 @@
             android:layout_marginEnd="75dp" android:layout_marginRight="75dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="55dp"
             android:layout_marginStart="55dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="100dp"/>
+            android:layout_marginBottom="100dp" android:onClick="pressOrder"/>
     <Button
             android:text="@string/removeItem"
             android:layout_width="wrap_content"

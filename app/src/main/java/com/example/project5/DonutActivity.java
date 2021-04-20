@@ -73,6 +73,7 @@ public class DonutActivity extends Activity {
 
     public void addDonut(View view) {
         try {
+            onCheckedChanged(rg, rg.getCheckedRadioButtonId());
             String flavor = flavorSpinner.getSelectedItem().toString();
             int quantity = parseInt(quantitySpinner.getSelectedItem().toString());
             Donut newDonut = new Donut(quantity, flavor, type);
@@ -90,13 +91,13 @@ public class DonutActivity extends Activity {
 
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         switch(checkedId){
-            case R.id.radioButton5:
+            case R.id.radioButton:
                 type = YEAST_DONUT;
                 break;
-            case R.id.radioButton6:
+            case R.id.radioButton2:
                 type = CAKE_DONUT;
                 break;
-            case R.id.radioButton7:
+            case R.id.radioButton3:
                 type = DONUT_HOLE;
                 break;
         }
@@ -135,6 +136,11 @@ public class DonutActivity extends Activity {
             }
             // updatePrice();
         }
+    }
+
+    public void returnToMain(View view){
+        
+        finish();
     }
 
 

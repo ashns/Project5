@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RadioGroup;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,7 @@ public class DonutActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donuts);
+        setContentView(R.layout.activity_donut);
          quantitySpinner = findViewById(R.id.spinner3);
         flavorSpinner = findViewById(R.id.spinner2);
         donutLW = findViewById(R.id.donutLW);
@@ -67,6 +66,8 @@ public class DonutActivity extends Activity {
         quantitySpinner.setPrompt("Select a Quantity");
         quantitySpinner.setAdapter(dataAdapter2);
 
+        current = currentOrder.getItems();
+
     }
 
 
@@ -76,6 +77,7 @@ public class DonutActivity extends Activity {
             int quantity = parseInt(quantitySpinner.getSelectedItem().toString());
             Donut newDonut = new Donut(quantity, flavor, type);
             currentOrder.add(newDonut);
+
             //    donutLW.add(newDonut);
             //  updatePrice();
 
@@ -126,6 +128,7 @@ public class DonutActivity extends Activity {
      */
     public void displayOrder() {
         current = currentOrder.getItems();
+
         for (int i = 0; i < current.length; i++) {
             if (current[i] != null) {
                 // donutLW.getItems().add(current[i]);

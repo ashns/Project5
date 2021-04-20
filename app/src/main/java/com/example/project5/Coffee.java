@@ -111,7 +111,7 @@ public class Coffee extends MenuItem implements Customizable {
             case SIZE_GRANDE:
                 message += "grande coffee";
                 break;
-                case SIZE_VENTI:
+            case SIZE_VENTI:
                 message += "venti coffee";
                 break;
             default:

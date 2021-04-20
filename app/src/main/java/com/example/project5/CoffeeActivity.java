@@ -25,6 +25,12 @@ public class CoffeeActivity extends Activity {
     CheckBox caramelCB;
     CheckBox whippedcremeCB;
     Spinner quantitySpinner;
+    ListView coffeeLW;
+    RadioButton shortSize;
+    RadioButton tallSize;
+    RadioButton grandeSize;
+    RadioButton ventiSize;
+    List<String> coffeeList = new ArrayList<String>();
 
 
     @Override
@@ -38,6 +44,10 @@ public class CoffeeActivity extends Activity {
         caramelCB = findViewById(R.id.caramelCB);
         whippedcremeCB =  findViewById(R.id.whippedcremeCB);
         quantitySpinner =  findViewById(R.id.quantitySpinner);
+        shortSize = findViewById(R.id.shortCB);
+        tallSize = findViewById(R.id.tallCB);
+        grandeSize = findViewById(R.id.grandeCB);
+        ventiSize = findViewById(R.id.ventiCB);
         //quantitySpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
         quantitySpinner = findViewById(R.id.quantitySpinner);
         List<String> quantities = new ArrayList<String>();
@@ -53,6 +63,14 @@ public class CoffeeActivity extends Activity {
         quantitySpinner.setPrompt("Select a Quantity");
         quantitySpinner.setAdapter(dataAdapter2);
 
+        coffeeLW = findViewById(R.id.coffeeLW);
+        for(int i = 0; i<currentOrder.getItemCount(); i++){
+            coffeeList.add(current[i].toString());
+        }
+        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, coffeeList);
+        dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        coffeeLW.setAdapter(dataAdapter3);
 
     }
 
@@ -64,6 +82,18 @@ public class CoffeeActivity extends Activity {
     public void pressOrder(View view) {
         try {
             quantity = Integer.parseInt((String) quantitySpinner.getSelectedItem());
+            if(shortSize.isSelected()) {
+                size = 1;
+            }
+            else if(tallSize.isSelected()){
+               size = 2;
+            }
+            else if(grandeSize.isSelected()){
+                size = 3;
+            }
+            else if(ventiSize.isSelected()){
+                size = 4;
+            }
             Coffee newCoffee = new Coffee(size, quantity);
             if (creamCB.isSelected()) {
                 newCoffee.add("cream");
@@ -82,8 +112,11 @@ public class CoffeeActivity extends Activity {
             }
 
             currentOrder.add(newCoffee);
-            // coffeeLW.getItems().add(newCoffee);
-            //  updatePrice();
+            coffeeList.add(newCoffee.toString());
+            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, coffeeList);
+            dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+            coffeeLW.setAdapter(dataAdapter3);
 
         }catch(Exception e){
             AlertDialog alertDialog = new AlertDialog.Builder(CoffeeActivity.this).create();

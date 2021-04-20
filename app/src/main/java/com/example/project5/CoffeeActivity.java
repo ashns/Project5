@@ -3,10 +3,7 @@ package com.example.project5;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.CheckBox;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
+import android.widget.*;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -40,6 +37,20 @@ public class CoffeeActivity extends Activity {
         whippedcremeCB =  findViewById(R.id.whippedcremeCB);
         quantitySpinner =  findViewById(R.id.quantitySpinner);
         //quantitySpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        quantitySpinner = findViewById(R.id.quantitySpinner);
+        List<String> quantities = new ArrayList<String>();
+        quantities.add("1");
+        quantities.add("2");
+        quantities.add("3");
+        quantities.add("4");
+        quantities.add("5");
+        quantities.add("6");
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, quantities);
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        quantitySpinner.setPrompt("Select a Quantity");
+        quantitySpinner.setAdapter(dataAdapter2);
+
 
     }
 

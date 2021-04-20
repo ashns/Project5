@@ -32,14 +32,14 @@ public class CoffeeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coffee);
-        rg = (RadioGroup) findViewById(R.id.coffeeSize);
-        creamCB = (CheckBox) findViewById(R.id.creamCB);
-        milkCB = (CheckBox) findViewById(R.id.milkCB);
-        syrupCB = (CheckBox) findViewById(R.id.syrupCB);
-        caramelCB = (CheckBox) findViewById(R.id.caramelCB);
-        whippedcremeCB = (CheckBox) findViewById(R.id.whippedcremeCB);
-        quantitySpinner = (Spinner) findViewById(R.id.spinner3);
-        quantitySpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        rg = findViewById(R.id.coffeeSize);
+        creamCB =  findViewById(R.id.creamCB);
+        milkCB = findViewById(R.id.milkCB);
+        syrupCB =  findViewById(R.id.syrupCB);
+        caramelCB = findViewById(R.id.caramelCB);
+        whippedcremeCB =  findViewById(R.id.whippedcremeCB);
+        quantitySpinner =  findViewById(R.id.quantitySpinner);
+        //quantitySpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
 
     }
 
@@ -69,8 +69,8 @@ public class CoffeeActivity extends Activity {
             }
 
             currentOrder.add(newCoffee);
-           // coffeeLW.getItems().add(newCoffee);
-          //  updatePrice();
+            // coffeeLW.getItems().add(newCoffee);
+            //  updatePrice();
 
         }catch(Exception e){
         }

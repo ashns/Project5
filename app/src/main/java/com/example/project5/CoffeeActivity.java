@@ -25,6 +25,8 @@ public class CoffeeActivity extends Activity {
     CheckBox caramelCB;
     CheckBox whippedcremeCB;
     Spinner quantitySpinner;
+    ListView coffeeLW;
+    List<String> coffeeList = new ArrayList<String>();
 
 
     @Override
@@ -53,6 +55,14 @@ public class CoffeeActivity extends Activity {
         quantitySpinner.setPrompt("Select a Quantity");
         quantitySpinner.setAdapter(dataAdapter2);
 
+        coffeeLW = findViewById(R.id.coffeeLW);
+        for(int i = 0; i<currentOrder.getItemCount(); i++){
+            coffeeList.add(current[i].toString());
+        }
+        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, coffeeList);
+        dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        coffeeLW.setAdapter(dataAdapter3);
 
     }
 
@@ -83,6 +93,11 @@ public class CoffeeActivity extends Activity {
 
             currentOrder.add(newCoffee);
             // coffeeLW.getItems().add(newCoffee);
+            coffeeList.add(newCoffee.toString());
+            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, coffeeList);
+            dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+            quantitySpinner.setAdapter(dataAdapter3);
             //  updatePrice();
 
         }catch(Exception e){

@@ -80,10 +80,7 @@ public class DonutActivity extends Activity {
         quantitySpinner.setAdapter(dataAdapter2);
 
         current = currentOrder.getItems();
-        for(int i = 0; i < current.length; i++){
-            donutList.add(current[i].toString());
 
-        }
     }
 
 

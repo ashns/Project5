@@ -4,7 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.TextView;
+import android.widget.Spinner;
+import android.widget.ListView;
+import android.widget.RadioGroup;
+import android.widget.RadioButton;
+import android.widget.ArrayAdapter;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -29,6 +34,7 @@ public class DonutActivity extends Activity {
     RadioButton yeastRB;
     RadioButton cakeRB;
     RadioButton dhRB;
+    TextView priceTV;
     List<String> donutList = new ArrayList<String>();
 
     @Override
@@ -42,6 +48,7 @@ public class DonutActivity extends Activity {
          yeastRB = (RadioButton) findViewById(R.id.radioButton5);
          cakeRB = (RadioButton) findViewById(R.id.radioButton6);
          dhRB = (RadioButton) findViewById(R.id.radioButton7);
+         priceTV = findViewById(R.id.priceTV);
 
         currentOrder = (Order) getIntent().getSerializableExtra("ORDER");
         // Spinner Drop down elements
@@ -73,7 +80,10 @@ public class DonutActivity extends Activity {
         quantitySpinner.setAdapter(dataAdapter2);
 
         current = currentOrder.getItems();
+        for(int i = 0; i < current.length; i++){
+            donutList.add(current[i].toString());
 
+        }
     }
 
 
@@ -99,6 +109,8 @@ public class DonutActivity extends Activity {
                     android.R.layout.simple_spinner_item, donutList);
             dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
             donutLW.setAdapter(dataAdapter3);
+
+            updatePrice();
 
         }catch(Exception e) {
 
@@ -147,13 +159,18 @@ public class DonutActivity extends Activity {
      */
     public void displayOrder() {
         current = currentOrder.getItems();
-
+        donutList = new ArrayList<String>();
         for (int i = 0; i < current.length; i++) {
             if (current[i] != null) {
-                // donutLW.getItems().add(current[i]);
+                donutList.add(current[i].toString());
             }
-            // updatePrice();
+            updatePrice();
         }
+    }
+
+    public void updatePrice(){
+        double price = currentOrder.orderPrice();
+        priceTV.setText(usd.format(price));
     }
 
     public void returnToMain(View view){

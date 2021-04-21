@@ -45,9 +45,9 @@ public class DonutActivity extends Activity {
          flavorSpinner = findViewById(R.id.spinner2);
          donutLW = findViewById(R.id.donutLW);
          rg = findViewById(R.id.donutTypeRB);
-         yeastRB = (RadioButton) findViewById(R.id.radioButton5);
-         cakeRB = (RadioButton) findViewById(R.id.radioButton6);
-         dhRB = (RadioButton) findViewById(R.id.radioButton7);
+         yeastRB = (RadioButton) findViewById(R.id.radioButton);
+         cakeRB = (RadioButton) findViewById(R.id.radioButton2);
+         dhRB = (RadioButton) findViewById(R.id.radioButton3);
          priceTV = findViewById(R.id.priceTV);
 
         currentOrder = (Order) getIntent().getSerializableExtra("ORDER");

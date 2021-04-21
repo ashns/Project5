@@ -38,16 +38,16 @@ public class CoffeeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coffee);
         rg = findViewById(R.id.coffeeSize);
-        creamCB =  findViewById(R.id.creamCB);
-        milkCB = findViewById(R.id.milkCB);
-        syrupCB =  findViewById(R.id.syrupCB);
-        caramelCB = findViewById(R.id.caramelCB);
-        whippedcremeCB =  findViewById(R.id.whippedcremeCB);
+        creamCB =  (CheckBox) findViewById(R.id.creamCB);
+        milkCB = (CheckBox) findViewById(R.id.milkCB);
+        syrupCB =  (CheckBox) findViewById(R.id.syrupCB);
+        caramelCB = (CheckBox) findViewById(R.id.caramelCB);
+        whippedcremeCB = (CheckBox) findViewById(R.id.whippedcremeCB);
         quantitySpinner =  findViewById(R.id.quantitySpinner);
-        shortSize = findViewById(R.id.shortCB);
-        tallSize = findViewById(R.id.tallCB);
-        grandeSize = findViewById(R.id.grandeCB);
-        ventiSize = findViewById(R.id.ventiCB);
+        shortSize = (RadioButton) findViewById(R.id.shortCB);
+        tallSize = (RadioButton) findViewById(R.id.tallCB);
+        grandeSize = (RadioButton) findViewById(R.id.grandeCB);
+        ventiSize = (RadioButton) findViewById(R.id.ventiCB);
         //quantitySpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
         quantitySpinner = findViewById(R.id.quantitySpinner);
         List<String> quantities = new ArrayList<String>();
@@ -82,29 +82,29 @@ public class CoffeeActivity extends Activity {
     public void pressOrder(View view) {
         try {
             quantity = Integer.parseInt((String) quantitySpinner.getSelectedItem());
-            if(shortSize.isSelected()) {
+            if(shortSize.isChecked()) {
                 size = 1;
             }
-            else if(tallSize.isSelected()){
+            else if(tallSize.isChecked()){
                size = 2;
             }
-            else if(grandeSize.isSelected()){
+            else if(grandeSize.isChecked()){
                 size = 3;
             }
-            else if(ventiSize.isSelected()){
+            else if(ventiSize.isChecked()){
                 size = 4;
             }
             Coffee newCoffee = new Coffee(size, quantity);
-            if (creamCB.isSelected()) {
+            if (creamCB.isChecked()) {
                 newCoffee.add("cream");
             }
-            if (syrupCB.isSelected()) {
+            if (syrupCB.isChecked()) {
                 newCoffee.add("syrup");
             }
-            if (milkCB.isSelected()) {
+            if (milkCB.isChecked()) {
                 newCoffee.add("milk");
             }
-            if (caramelCB.isSelected()) {
+            if (caramelCB.isChecked()) {
                 newCoffee.add("caramel");
             }
             if (whippedcremeCB.isSelected()) {

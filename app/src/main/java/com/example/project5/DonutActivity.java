@@ -4,14 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.RadioGroup;
+import android.widget.*;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-
-import android.widget.Spinner;
 
 import static java.lang.Integer.parseInt;
 
@@ -28,15 +25,24 @@ public class DonutActivity extends Activity {
     Spinner flavorSpinner;
     ListView donutLW ;
     RadioGroup rg ;
+    int quantity;
+    RadioButton yeastRB;
+    RadioButton cakeRB;
+    RadioButton dhRB;
+    List<String> donutList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donut);
          quantitySpinner = findViewById(R.id.spinner3);
-        flavorSpinner = findViewById(R.id.spinner2);
-        donutLW = findViewById(R.id.donutLW);
+         flavorSpinner = findViewById(R.id.spinner2);
+         donutLW = findViewById(R.id.donutLW);
          rg = findViewById(R.id.donutTypeRB);
+         yeastRB = (RadioButton) findViewById(R.id.radioButton5);
+         cakeRB = (RadioButton) findViewById(R.id.radioButton6);
+         dhRB = (RadioButton) findViewById(R.id.radioButton7);
+
         currentOrder = (Order) getIntent().getSerializableExtra("ORDER");
         // Spinner Drop down elements
         List<String> donutFlavors = new ArrayList<String>();
@@ -74,12 +80,24 @@ public class DonutActivity extends Activity {
     public void addDonut(View view) {
         try {
             String flavor = flavorSpinner.getSelectedItem().toString();
-            int quantity = parseInt(quantitySpinner.getSelectedItem().toString());
+            quantity = Integer.parseInt((String) quantitySpinner.getSelectedItem());
+            if(yeastRB.isChecked()) {
+                type = YEAST_DONUT;
+            }
+            else if(cakeRB.isChecked()){
+                type = CAKE_DONUT;
+            }
+            else if(dhRB.isChecked()){
+                type = DONUT_HOLE;
+            }
             Donut newDonut = new Donut(quantity, flavor, type);
             currentOrder.add(newDonut);
 
-            //    donutLW.add(newDonut);
-            //  updatePrice();
+            donutList.add(newDonut.toString());
+            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, donutList);
+            dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+            donutLW.setAdapter(dataAdapter3);
 
         }catch(Exception e) {
 

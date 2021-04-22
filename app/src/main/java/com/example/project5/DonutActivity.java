@@ -80,6 +80,7 @@ public class DonutActivity extends Activity {
         quantitySpinner.setAdapter(dataAdapter2);
 
         current = currentOrder.getItems();
+        priceTV.setText("Price: $" + usd.format(currentOrder.orderPrice()));
 
         for(int i = 0; i < current.length; i++){
             if(current[i] != null)
@@ -163,16 +164,7 @@ public class DonutActivity extends Activity {
      * This method is used when the donut fxml is initialized to update
      * the ListView to contain up to date order information.
      */
-    public void displayOrder() {
-        current = currentOrder.getItems();
-        donutList = new ArrayList<String>();
-        for (int i = 0; i < current.length; i++) {
-            if (current[i] != null) {
-                donutList.add(current[i].toString());
-            }
-            updatePrice();
-        }
-    }
+
 
     public void updatePrice(){
         double price = currentOrder.orderPrice();
@@ -181,8 +173,8 @@ public class DonutActivity extends Activity {
 
     public void returnToMain(View view){
         Intent ret = new Intent();
-        ret.putExtra("ORDERS", currentOrder);
-        setResult(Activity.RESULT_OK);
+        ret.putExtra("ORDER", currentOrder);
+        setResult(Activity.RESULT_OK, ret);
         finish();
     }
 

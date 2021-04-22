@@ -1,12 +1,14 @@
 package com.example.project5;
 
+import java.io.Serializable;
+
 /**
  * This class is responsible for the array which holds the store orders.
  * Provides client methods: grow, search, add, remove, priny
  * Provides accessor methods: getOrders, getNumOrders
  * @author Ashley Stankovits, Matthew Walker
  */
-public class StoreOrders implements Customizable{
+public class StoreOrders implements Customizable, Serializable {
 
     private Order orders[] = new Order[4];
     private int orderCount = 0;

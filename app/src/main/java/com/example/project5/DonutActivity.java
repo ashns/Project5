@@ -81,6 +81,15 @@ public class DonutActivity extends Activity {
 
         current = currentOrder.getItems();
 
+        for(int i = 0; i < current.length; i++){
+            if(current[i] != null)
+            donutList.add(current[i].toString());
+        }
+        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, donutList);
+        dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        donutLW.setAdapter(dataAdapter3);
+
     }
 
 
@@ -167,11 +176,13 @@ public class DonutActivity extends Activity {
 
     public void updatePrice(){
         double price = currentOrder.orderPrice();
-        priceTV.setText(usd.format(price));
+        priceTV.setText("Price: $" + usd.format(price));
     }
 
     public void returnToMain(View view){
-        
+        Intent ret = new Intent();
+        ret.putExtra("ORDERS", currentOrder);
+        setResult(Activity.RESULT_OK);
         finish();
     }
 

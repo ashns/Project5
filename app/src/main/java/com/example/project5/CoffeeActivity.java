@@ -145,20 +145,36 @@ public class CoffeeActivity extends Activity {
         }
     }
 
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch(checkedId){
-            case R.id.shortCB:
-                size = 1;
-                break;
-            case R.id.tallCB:
-                size = 2;
-                break;
-            case R.id.grandeCB:
-                size = 3;
-                break;
-            case R.id.ventiCB:
-                size = 4;
-                break;
+    /**
+     * This method removes an item from the order when the user clicks
+     * the remove button. It also then removes said item from the list view.
+     * @param view which is the user clicking the "remove item" button
+     */
+    public void removeItem(View view){
+        try {
+            int index = coffeeLW.getSelectedItemPosition();
+            currentOrder.remove(index);
+            coffeeList.remove(index);
+            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_spinner_item, coffeeList);
+            dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+            coffeeLW.setAdapter(dataAdapter3);
+           // updatePrice();
+        }
+        catch (Exception e){
+            if(currentOrder.getItemCount() == 0){
+                AlertDialog alertDialog = new AlertDialog.Builder(CoffeeActivity.this).create();
+                alertDialog.setTitle("Alert");
+                alertDialog.setMessage("Please add an item to be removed.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+            }
+
         }
     }
 }

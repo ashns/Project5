@@ -150,7 +150,7 @@ public class CoffeeActivity extends Activity {
      * the remove button. It also then removes said item from the list view.
      * @param view which is the user clicking the "remove item" button
      */
-    public void removeItem(View view){
+    public void pressRemove(View view){
         try {
             int index = coffeeLW.getSelectedItemPosition();
             currentOrder.remove(index);

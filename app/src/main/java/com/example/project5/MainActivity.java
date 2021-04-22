@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 
     public class MainActivity extends AppCompatActivity {
-
+        final int CALLED_DONUT = 1;
+        final int CALLED_STORE_ORDER = 4;
 
         public StoreOrders currentStoreOrders = new StoreOrders();
         public Order currentOrder = new Order();
@@ -34,11 +36,9 @@ import android.widget.Button;
         }
 
         public void showDonut(View view) {
-
             Intent intent = new Intent(this, DonutActivity.class);
-
             intent.putExtra("ORDER", currentOrder);
-            startActivityForResult(intent, Activity.RESULT_OK);
+            startActivityForResult(intent, CALLED_DONUT);
 
         }
 
@@ -68,13 +68,14 @@ import android.widget.Button;
         }
 
         @Override
-        public void onActivityResult(int requested, int result, Intent data){
-            super.onActivityResult(requested, result, data);
-            switch(result){
-                case Activity.RESULT_OK:
-                    currentOrder = (Order)data.getSerializableExtra("ORDER");
+        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+            super.onActivityResult(requestCode, resultCode, data);
+            switch (requestCode) {
+                case CALLED_DONUT:
+                    if (resultCode == RESULT_OK) {
+                        currentOrder = (Order)data.getSerializableExtra("ORDER");
+                    }
                     break;
-                    
             }
         }
-}
+    }

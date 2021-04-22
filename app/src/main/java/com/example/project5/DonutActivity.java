@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -36,6 +37,7 @@ public class DonutActivity extends Activity {
     RadioButton dhRB;
     TextView priceTV;
     List<String> donutList = new ArrayList<String>();
+    Button retMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +51,9 @@ public class DonutActivity extends Activity {
          cakeRB = (RadioButton) findViewById(R.id.radioButton2);
          dhRB = (RadioButton) findViewById(R.id.radioButton3);
          priceTV = findViewById(R.id.priceTV);
+         retMain = findViewById(R.id.button9);
 
-        currentOrder = (Order) getIntent().getSerializableExtra("ORDER");
+        currentOrder = (Order)getIntent().getSerializableExtra("ORDER");
         // Spinner Drop down elements
         List<String> donutFlavors = new ArrayList<String>();
         donutFlavors.add("Vanilla");
@@ -80,6 +83,7 @@ public class DonutActivity extends Activity {
         quantitySpinner.setAdapter(dataAdapter2);
 
         current = currentOrder.getItems();
+        priceTV.setText("Price: $" + usd.format(currentOrder.orderPrice()));
 
         for(int i = 0; i < current.length; i++){
             if(current[i] != null)
@@ -90,6 +94,15 @@ public class DonutActivity extends Activity {
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
         donutLW.setAdapter(dataAdapter3);
 
+        retMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.putExtra("ORDER", currentOrder);
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
     }
 
 
@@ -150,7 +163,7 @@ public class DonutActivity extends Activity {
             int index = donutLW.getSelectedItemPosition();
             currentOrder.remove(index);
             // donutLW.getItems().remove(index); donutLW.
-            //    updatePrice();
+                updatePrice();
             donutLW.getSelectedItem();
         }
         catch (Exception e){
@@ -160,31 +173,12 @@ public class DonutActivity extends Activity {
     }
 
     /**
-     * This method is used when the donut fxml is initialized to update
-     * the ListView to contain up to date order information.
+     * This method is used to update the price in the label to the current
+     * price of the order.
      */
-    public void displayOrder() {
-        current = currentOrder.getItems();
-        donutList = new ArrayList<String>();
-        for (int i = 0; i < current.length; i++) {
-            if (current[i] != null) {
-                donutList.add(current[i].toString());
-            }
-            updatePrice();
-        }
-    }
-
     public void updatePrice(){
         double price = currentOrder.orderPrice();
         priceTV.setText("Price: $" + usd.format(price));
     }
-
-    public void returnToMain(View view){
-        Intent ret = new Intent();
-        ret.putExtra("ORDERS", currentOrder);
-        setResult(Activity.RESULT_OK);
-        finish();
-    }
-
 
 }

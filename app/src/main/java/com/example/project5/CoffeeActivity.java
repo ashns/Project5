@@ -94,6 +94,19 @@ public class CoffeeActivity extends Activity {
             else if(ventiSize.isChecked()){
                 size = 4;
             }
+            else{
+                AlertDialog alertDialog = new AlertDialog.Builder(CoffeeActivity.this).create();
+                alertDialog.setTitle("Alert");
+                alertDialog.setMessage("Please enter valid values for size and quantity.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
+                return;
+            }
             Coffee newCoffee = new Coffee(size, quantity);
             if (creamCB.isChecked()) {
                 newCoffee.add("cream");

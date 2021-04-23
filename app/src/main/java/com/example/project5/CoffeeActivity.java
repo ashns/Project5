@@ -32,6 +32,9 @@ public class CoffeeActivity extends Activity {
     RadioButton grandeSize;
     RadioButton ventiSize;
     List<String> coffeeList = new ArrayList<String>();
+    int index;
+    ArrayAdapter<String> dataAdapter3;
+    TextView priceTV;
 
 
     @Override
@@ -44,6 +47,7 @@ public class CoffeeActivity extends Activity {
         syrupCB =  (CheckBox) findViewById(R.id.syrupCB);
         caramelCB = (CheckBox) findViewById(R.id.caramelCB);
         whippedcremeCB = (CheckBox) findViewById(R.id.whippedcremeCB);
+        priceTV = findViewById(R.id.priceTV);
         quantitySpinner =  findViewById(R.id.quantitySpinner);
         shortSize = (RadioButton) findViewById(R.id.shortCB);
         tallSize = (RadioButton) findViewById(R.id.tallCB);
@@ -68,10 +72,50 @@ public class CoffeeActivity extends Activity {
         for(int i = 0; i<currentOrder.getItemCount(); i++){
             coffeeList.add(current[i].toString());
         }
-        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+        dataAdapter3 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, coffeeList);
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
         coffeeLW.setAdapter(dataAdapter3);
+
+        coffeeLW.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                index = position;
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(CoffeeActivity.this);
+                alertDialog.setTitle("Alert");
+                alertDialog.setMessage("Would you like to delete this item?");
+                alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        try {
+                            currentOrder.remove(index);
+                            coffeeList.remove(index);
+                            dataAdapter3.notifyDataSetChanged();
+                           updatePrice();
+                            dialog.dismiss();
+                        }
+                        catch (Exception e){
+                            System.out.println("Error here" + e);
+                        }
+                    }
+                });
+
+                alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        // Do nothing
+                        dialog.dismiss();
+                        return;
+                    }
+                });
+                AlertDialog alert = alertDialog.create();
+                alert.show();
+
+            }
+        });
 
     }
 
@@ -146,43 +190,20 @@ public class CoffeeActivity extends Activity {
         }
     }
 
-    /**
-     * This method removes an item from the order when the user clicks
-     * the remove button. It also then removes said item from the list view.
-     * @param view which is the user clicking the "remove item" button
-     */
-    public void pressRemove(View view){
-        try {
-            int index = coffeeLW.getSelectedItemPosition();
-            currentOrder.remove(index);
-            coffeeList.remove(index);
-            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_item, coffeeList);
-            dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
-            coffeeLW.setAdapter(dataAdapter3);
-           // updatePrice();
-        }
-        catch (Exception e){
-            if(currentOrder.getItemCount() == 0){
-                AlertDialog alertDialog = new AlertDialog.Builder(CoffeeActivity.this).create();
-                alertDialog.setTitle("Alert");
-                alertDialog.setMessage("Please add an item to be removed.");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                alertDialog.show();
-            }
-
-        }
-    }
 
     public void returnToMain(View view){
         Intent intent = new Intent();
         intent.putExtra("ORDER", currentOrder);
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    /**
+     * This method is used to update the price in the label to the current
+     * price of the order.
+     */
+    public void updatePrice(){
+        double price = currentOrder.orderPrice();
+        priceTV.setText("Price: $" + usd.format(price));
     }
 }

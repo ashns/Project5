@@ -92,7 +92,7 @@ public class CoffeeActivity extends Activity {
                             currentOrder.remove(index);
                             coffeeList.remove(index);
                             dataAdapter3.notifyDataSetChanged();
-                           updatePrice();
+                            updatePrice();
                             dialog.dismiss();
                         }
                         catch (Exception e){

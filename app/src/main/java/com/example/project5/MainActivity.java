@@ -57,6 +57,7 @@ import android.widget.Button;
             Intent intent = new Intent(this, OrderActivity.class);
 
             intent.putExtra("ORDER", currentOrder);
+            intent.putExtra("STORE_ORDER", currentStoreOrders);
             startActivityForResult(intent, CALLED_ORDER);
         }
 
@@ -64,7 +65,7 @@ import android.widget.Button;
 
             Intent intent = new Intent(getApplicationContext(), StoreOrderActivity.class);
 
-            intent.putExtra("ORDER", currentStoreOrders);
+            intent.putExtra("STORE_ORDER", currentStoreOrders);
             startActivityForResult(intent, CALLED_STORE_ORDER);
 
         }
@@ -78,6 +79,11 @@ import android.widget.Button;
                         currentOrder = (Order)data.getSerializableExtra("ORDER");
                     }
                     break;
+                case CALLED_ORDER:
+                    if(resultCode == RESULT_OK){
+                        currentOrder = (Order)data.getSerializableExtra("ORDER");
+                        currentStoreOrders = (StoreOrders)data.getSerializableExtra("STORE_ORDER");
+                    }
             }
         }
     }

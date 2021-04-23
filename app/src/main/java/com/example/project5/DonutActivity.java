@@ -13,7 +13,7 @@ import android.widget.RadioButton;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
-
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +24,11 @@ public class DonutActivity extends Activity {
     final int YEAST_DONUT = 1;
     final int CAKE_DONUT = 2;
     final int DONUT_HOLE = 3;
-    private Order newOrder = new Order();
+
     private MenuItem current[];
     DecimalFormat usd = new DecimalFormat("#.##");
     int type;
-    Order currentOrder;
+    private Order currentOrder;
     Spinner quantitySpinner;
     Spinner flavorSpinner;
     ListView donutLW ;

@@ -1,5 +1,7 @@
 package com.example.project5;
 
+import java.io.Serializable;
+
 /**
  * This class defines the menu item of type donut to hold all the
  * donut specific information.
@@ -8,7 +10,7 @@ package com.example.project5;
  * Provides accessor methods: getFlavor, getDonutType
  * @author Ashley Stankovits, Matthew Walker
  */
-public class Donut extends MenuItem{
+public class Donut extends MenuItem implements Serializable{
 
     final int YEAST_DONUT = 1;
     final int CAKE_DONUT = 2;
@@ -30,6 +32,10 @@ public class Donut extends MenuItem{
         super(number);
         flavor = taste;
         donutType = type;
+    }
+
+    public Donut(){
+        super();
     }
 
     /**

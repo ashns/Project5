@@ -5,12 +5,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.*;
 
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.widget.Button;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -18,6 +15,7 @@ import java.util.List;
 
 public class OrderActivity extends Activity {
     Order currentOrder;
+    StoreOrders store;
     MenuItem[] current;
     ListView orderLV;
     List<String> orders = new ArrayList<String>();
@@ -31,6 +29,7 @@ public class OrderActivity extends Activity {
         setContentView(R.layout.activity_orders);
         currentOrder = (Order)getIntent().getSerializableExtra("ORDER");
         current = currentOrder.getItems();
+        store = (StoreOrders)getIntent().getSerializableExtra("STORE_ORDER");
         priceTV = findViewById(R.id.textView2);
         updatePrice();
 
@@ -51,6 +50,19 @@ public class OrderActivity extends Activity {
         intent.putExtra("ORDER", currentOrder);
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    public void pushOrder(View view){
+        if(currentOrder.getItemCount() > 0) {
+            store.add(currentOrder);
+            currentOrder = new Order();
+            returnToMain(view);
+        }
+        else{
+            Toast warn = Toast.makeText("Cannot place an empty order.");
+
+        }
+
     }
 
     public void updatePrice(){

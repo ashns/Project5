@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
                                                    tools:context=".CoffeeActivity">
 
+    <TextView
+            android:text="@string/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/priceTV2"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/coffeeLW" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button" app:layout_constraintHorizontal_bias="0.12"/>
     <ImageView
             android:layout_width="249dp"
             android:layout_height="165dp" app:srcCompat="@drawable/tempcoffee" android:id="@+id/imageView"
@@ -17,7 +25,7 @@
     <RadioGroup
             android:layout_width="149dp"
             android:layout_height="134dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintTop_toBottomOf="@+id/imageView" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="26dp" android:layout_marginStart="26dp" android:layout_marginBottom="26dp"
             app:layout_constraintBottom_toTopOf="@+id/creamCB" app:layout_constraintEnd_toStartOf="@+id/_dynamic"
@@ -80,14 +88,15 @@
             app:layout_constraintEnd_toStartOf="@+id/_dynamic"
             android:layout_marginEnd="27dp" android:layout_marginRight="27dp" android:layout_marginTop="10dp"/>
     <ListView
-            android:layout_width="211dp"
-            android:layout_height="404dp" android:layout_marginLeft="11dp"
+            android:layout_width="214dp"
+            android:layout_height="332dp" android:layout_marginLeft="11dp"
             android:layout_marginStart="11dp" app:layout_constraintStart_toEndOf="@+id/coffeeSize"
-            android:layout_marginTop="50dp" app:layout_constraintTop_toBottomOf="@+id/imageView"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/imageView"
             android:layout_marginEnd="14dp" android:layout_marginRight="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/coffeeLW" android:clickable="true" android:layout_marginBottom="19dp"
-            app:layout_constraintBottom_toTopOf="@+id/button2"/>
+            app:layout_constraintBottom_toTopOf="@+id/button2" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="0.089"/>
     <Spinner
             android:layout_width="123dp"
             android:layout_height="31dp" android:id="@+id/quantitySpinner"
@@ -104,13 +113,13 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toStartOf="@+id/coffeeLW"
             android:layout_marginEnd="45dp" android:layout_marginRight="45dp"
             app:layout_constraintHorizontal_bias="0.0" android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp" android:layout_marginBottom="15dp"
+            android:layout_marginStart="24dp" android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toTopOf="@+id/button2" android:onClick="pressOrder"/>
     <Button
             android:text="@string/returnMain"
             android:layout_width="350dp"
             android:layout_height="45dp" android:id="@+id/button2"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="40dp"
-            android:onClick="returnToMain"/>
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="84dp"
+            android:onClick="returnToMain" app:layout_constraintHorizontal_bias="0.491"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

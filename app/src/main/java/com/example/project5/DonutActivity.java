@@ -107,7 +107,7 @@ public class DonutActivity extends Activity {
 
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    index = donutLW.getSelectedItemPosition();
+                    index = position;
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(DonutActivity.this);
                     alertDialog.setTitle("Alert");
                     alertDialog.setMessage("Would you like to delete this item?");
@@ -122,8 +122,7 @@ public class DonutActivity extends Activity {
                                 dialog.dismiss();
                             }
                             catch (Exception e){
-
-
+                                System.out.println("Error here" + e);
                             }
                         }
                     });

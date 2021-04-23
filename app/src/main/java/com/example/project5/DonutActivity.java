@@ -83,7 +83,7 @@ public class DonutActivity extends Activity {
         quantitySpinner.setAdapter(dataAdapter2);
 
         current = currentOrder.getItems();
-        priceTV.setText("Price: $" + usd.format(currentOrder.orderPrice()));
+
 
         for(int i = 0; i < current.length; i++){
             if(current[i] != null)

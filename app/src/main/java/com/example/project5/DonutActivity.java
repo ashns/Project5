@@ -35,6 +35,7 @@ public class DonutActivity extends Activity {
     List<String> donutList = new ArrayList<String>();
     Button retMain;
     ArrayAdapter<String> dataAdapter3;
+    int index;
 
 
 
@@ -106,19 +107,24 @@ public class DonutActivity extends Activity {
 
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    index = donutLW.getSelectedItemPosition();
                     AlertDialog.Builder alertDialog = new AlertDialog.Builder(DonutActivity.this);
                     alertDialog.setTitle("Alert");
                     alertDialog.setMessage("Would you like to delete this item?");
                     alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
                         public void onClick(DialogInterface dialog, int which) {
-                            int index = donutLW.getSelectedItemPosition();
-                            currentOrder.remove(index);
-                            donutList.remove(index);
-                            dataAdapter3.notifyDataSetChanged();
-                            updatePrice();
+                            try {
+                                currentOrder.remove(index);
+                                donutList.remove(index);
+                                dataAdapter3.notifyDataSetChanged();
+                                updatePrice();
+                                dialog.dismiss();
+                            }
+                            catch (Exception e){
 
-                            dialog.dismiss();
+
+                            }
                         }
                     });
 

@@ -1,6 +1,7 @@
 package com.example.project5;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import androidx.appcompat.app.AlertDialog;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -119,6 +121,18 @@ public class DonutActivity extends Activity {
             }
             else if(dhRB.isChecked()){
                 type = DONUT_HOLE;
+            }
+            else{
+                AlertDialog alertDialog = new AlertDialog.Builder(DonutActivity.this).create();
+                alertDialog.setTitle("Alert");
+                alertDialog.setMessage("Please enter valid values for size and quantity.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
             }
             Donut newDonut = new Donut(quantity, flavor, type);
             currentOrder.add(newDonut);

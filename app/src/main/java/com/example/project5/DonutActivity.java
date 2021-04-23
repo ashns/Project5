@@ -5,13 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Spinner;
-import android.widget.ListView;
-import android.widget.RadioGroup;
-import android.widget.RadioButton;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.*;
 import androidx.appcompat.app.AlertDialog;
 
 import java.text.DecimalFormat;
@@ -40,8 +34,12 @@ public class DonutActivity extends Activity {
     TextView priceTV;
     List<String> donutList = new ArrayList<String>();
     Button retMain;
+    ArrayAdapter<String> dataAdapter3;
 
-    @Override
+
+
+
+        @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donut);
@@ -54,8 +52,7 @@ public class DonutActivity extends Activity {
          dhRB = (RadioButton) findViewById(R.id.radioButton3);
          priceTV = findViewById(R.id.priceTV);
          retMain = findViewById(R.id.button9);
-
-        currentOrder = (Order)getIntent().getSerializableExtra("ORDER");
+                         currentOrder = (Order)getIntent().getSerializableExtra("ORDER");
         // Spinner Drop down elements
         List<String> donutFlavors = new ArrayList<String>();
         donutFlavors.add("Vanilla");
@@ -91,7 +88,7 @@ public class DonutActivity extends Activity {
             if(current[i] != null)
             donutList.add(current[i].toString());
         }
-        ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+        dataAdapter3 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, donutList);
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
         donutLW.setAdapter(dataAdapter3);
@@ -105,6 +102,41 @@ public class DonutActivity extends Activity {
                 finish();
             }
         });
+            donutLW.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    AlertDialog.Builder alertDialog = new AlertDialog.Builder(DonutActivity.this);
+                    alertDialog.setTitle("Alert");
+                    alertDialog.setMessage("Would you like to delete this item?");
+                    alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int which) {
+                            int index = donutLW.getSelectedItemPosition();
+                            currentOrder.remove(index);
+                            donutList.remove(index);
+                            dataAdapter3.notifyDataSetChanged();
+                            updatePrice();
+
+                            dialog.dismiss();
+                        }
+                    });
+
+                    alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            // Do nothing
+                            dialog.dismiss();
+                            return;
+                        }
+                    });
+                    AlertDialog alert = alertDialog.create();
+                    alert.show();
+
+                }
+            });
     }
 
 
@@ -125,7 +157,7 @@ public class DonutActivity extends Activity {
             else{
                 AlertDialog alertDialog = new AlertDialog.Builder(DonutActivity.this).create();
                 alertDialog.setTitle("Alert");
-                alertDialog.setMessage("Please enter valid values for size and quantity.");
+                alertDialog.setMessage("Please enter valid values for donut type, flavor, and quantity.");
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -133,15 +165,13 @@ public class DonutActivity extends Activity {
                             }
                         });
                 alertDialog.show();
+                return;
             }
             Donut newDonut = new Donut(quantity, flavor, type);
             currentOrder.add(newDonut);
 
             donutList.add(newDonut.toString());
-            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_item, donutList);
-            dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
-            donutLW.setAdapter(dataAdapter3);
+            dataAdapter3.notifyDataSetChanged();
 
             updatePrice();
 
@@ -176,7 +206,8 @@ public class DonutActivity extends Activity {
         try {
             int index = donutLW.getSelectedItemPosition();
             currentOrder.remove(index);
-            // donutLW.getItems().remove(index); donutLW.
+            donutList.remove(index);
+            dataAdapter3.notifyDataSetChanged();
                 updatePrice();
             donutLW.getSelectedItem();
         }

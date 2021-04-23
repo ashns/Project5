@@ -12,6 +12,8 @@ import android.widget.Button;
 
     public class MainActivity extends AppCompatActivity {
         final int CALLED_DONUT = 1;
+        final int CALLED_COFFEE = 2;
+        final int CALLED_ORDER = 3;
         final int CALLED_STORE_ORDER = 4;
 
         public StoreOrders currentStoreOrders = new StoreOrders();
@@ -47,7 +49,7 @@ import android.widget.Button;
             Intent intent = new Intent(this, CoffeeActivity.class);
 
             intent.putExtra("ORDER", currentOrder);
-            startActivity(intent);
+            startActivityForResult(intent, CALLED_COFFEE);
         }
 
         public void showOrder(View view) {
@@ -55,7 +57,7 @@ import android.widget.Button;
             Intent intent = new Intent(this, OrderActivity.class);
 
             intent.putExtra("ORDER", currentOrder);
-            startActivity(intent);
+            startActivityForResult(intent, CALLED_ORDER);
         }
 
         public void showStoreOrder(View view) {
@@ -63,7 +65,7 @@ import android.widget.Button;
             Intent intent = new Intent(getApplicationContext(), StoreOrderActivity.class);
 
             intent.putExtra("ORDER", currentStoreOrders);
-            startActivity(intent);
+            startActivityForResult(intent, CALLED_STORE_ORDER);
 
         }
 
@@ -71,7 +73,7 @@ import android.widget.Button;
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
             switch (requestCode) {
-                case CALLED_DONUT:
+                case CALLED_DONUT: CALLED_COFFEE:
                     if (resultCode == RESULT_OK) {
                         currentOrder = (Order)data.getSerializableExtra("ORDER");
                     }

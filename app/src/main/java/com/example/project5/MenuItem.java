@@ -1,5 +1,5 @@
 package com.example.project5;
-
+import java.io.Serializable;
 /**
  * This class defines menu item which is the parent type for
  * donut and coffee.
@@ -8,7 +8,7 @@ package com.example.project5;
  * Provides accessor methods: getQuantity
  * @author Ashley Stankovits, Matthew Walker
  */
-public class MenuItem {
+public class MenuItem implements Serializable{
 
     int quantity;
 
@@ -20,6 +20,8 @@ public class MenuItem {
     public MenuItem(int number){
         quantity = number;
     }
+
+    public MenuItem(){quantity = 0;}
 
     /**
      * This method initializes the default price of a menu item

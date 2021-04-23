@@ -2,6 +2,7 @@ package com.example.project5;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
@@ -176,5 +177,12 @@ public class CoffeeActivity extends Activity {
             }
 
         }
+    }
+
+    public void returnToMain(View view){
+        Intent intent = new Intent();
+        intent.putExtra("ORDER", currentOrder);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 }

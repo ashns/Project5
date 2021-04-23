@@ -1,5 +1,7 @@
 package com.example.project5;
 
+import java.io.Serializable;
+
 /**
  * This class defines the menu item of type coffee to hold all the
  * coffee specific information.
@@ -8,7 +10,7 @@ package com.example.project5;
  * addonprice
  * @author Ashley Stankovits, Matthew Walker
  */
-public class Coffee extends MenuItem implements Customizable {
+public class Coffee extends MenuItem implements Customizable, Serializable {
 
     final int SIZE_SHORT = 1;
     final int SIZE_TALL = 2;

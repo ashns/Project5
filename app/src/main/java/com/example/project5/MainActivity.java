@@ -90,6 +90,11 @@ import android.widget.Button;
                         currentStoreOrders = (StoreOrders)data.getSerializableExtra("STORE_ORDER");
                     }
                     break;
+                case CALLED_STORE_ORDER:
+                    if(resultCode == RESULT_OK){
+                        currentStoreOrders = (StoreOrders)data.getSerializableExtra("STORE_ORDER");
+                    }
+                    break;
             }
         }
     }

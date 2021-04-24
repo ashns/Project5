@@ -7,10 +7,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -35,7 +38,7 @@ public class OrderActivity extends Activity {
         current = currentOrder.getItems();
         store = (StoreOrders)getIntent().getSerializableExtra("STORE_ORDER");
         priceTV = findViewById(R.id.textView2);
-        updatePrice();
+
 
         orderLV = (ListView)findViewById(R.id.orderList);
         for(int i = 0; i < current.length; i++){
@@ -91,6 +94,8 @@ public class OrderActivity extends Activity {
             }
         });
 
+        updatePrice();
+
     }
 
     public void returnToMain(View view){
@@ -130,7 +135,8 @@ public class OrderActivity extends Activity {
 
     public void updatePrice(){
         double price = currentOrder.orderPrice();
-        priceTV.setText("Price: $" + usd.format(price));
+        priceTV.setText("Subtotal: $" + usd.format(price) + " - Tax: $" + usd.format(currentOrder.calculateSalesTax())
+        + " - Total: $" + usd.format(price + currentOrder.calculateSalesTax()));
     }
 
 }

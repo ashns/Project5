@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
+
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
@@ -30,7 +32,7 @@ public class StoreOrderActivity extends AppCompatActivity {
     List<String> orders = new ArrayList<>();
     TextView priceTV;
     ArrayAdapter<String> dataAdapter3;
-    ArrayList<String> currOrder;
+    DecimalFormat usd = new DecimalFormat("#.##");
     /**
      * This method initializes all views and listeners on this
      * screen.
@@ -48,7 +50,7 @@ public class StoreOrderActivity extends AppCompatActivity {
         ordersLV = findViewById(R.id.ordersList);
         for(int i = 0; i < current.length; i++){
             if(current[i] != null) {
-                orders.add(current[i].print());
+                orders.add(current[i].print()+"$"+usd.format(current[i].orderPrice()+current[i].calculateSalesTax()));
             }
 
         }

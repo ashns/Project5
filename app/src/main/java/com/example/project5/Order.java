@@ -16,7 +16,7 @@ public class Order implements Customizable, Serializable {
     final double SALES_TAX = 0.06625;
     private MenuItem items[] = new MenuItem[4];
     private int itemCount = 0;
-    transient DecimalFormat usd = new DecimalFormat("0.00");
+    transient DecimalFormat usd = new DecimalFormat("#.##");
     private static int number = 0;
     private int thisNumber = number+1;
     private final double NJ_TAX = 1.06625;
@@ -159,7 +159,7 @@ public class Order implements Customizable, Serializable {
         }
         try {
             double price = orderPrice();
-            order += "\n---------------\nTotal Price: $" + usd.format(price * NJ_TAX) + "\n---------------------------------";
+            order += "---------------\nTotal Price: $" + usd.format(price * NJ_TAX) + "\n---------------------------------";
         }
         catch(Exception e){
 
@@ -174,13 +174,6 @@ public class Order implements Customizable, Serializable {
      */
     public MenuItem[] getItems(){
         return items;
-    }
-
-    public MenuItem getItemAt(int index){
-        if (index < itemCount)
-            return items[index];
-        else
-            return null;
     }
 
     /**

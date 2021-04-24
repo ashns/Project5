@@ -149,6 +149,7 @@ public class OrderActivity extends Activity {
      */
     public void pushOrder(View view){
         if(currentOrder.getItemCount() > 0) {
+            currentOrder.updateNumber();
             store.add(currentOrder);
             currentOrder = new Order();
             Context context = getApplicationContext();

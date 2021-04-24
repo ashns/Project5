@@ -138,6 +138,7 @@ public class StoreOrderActivity extends Activity {
      * @param view which is the return button being clicked.
      */
     public void returnToMain(View view){
+        
         finish();
     }
 

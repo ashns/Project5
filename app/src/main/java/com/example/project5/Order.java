@@ -155,7 +155,12 @@ public class Order implements Customizable, Serializable {
         for(int i = 0; i < itemCount; i++){
             order += items[i].toString();
         }
-        order += "\n---------------\nTotal Price: $" + usd.format(orderPrice() * NJ_TAX) + "\n---------------------------------";
+        try {
+            order += "\n---------------\nTotal Price: $" + usd.format(orderPrice() * NJ_TAX) + "\n---------------------------------";
+        }
+        catch(Exception e){
+
+        }
         return order;
     }
 
@@ -175,6 +180,7 @@ public class Order implements Customizable, Serializable {
     public double orderPrice(){
         double price = 0;
         for(int i = 0; i < itemCount; i++){
+            if(items[i]!= null)
             price += items[i].itemPrice();
         }
         return price;

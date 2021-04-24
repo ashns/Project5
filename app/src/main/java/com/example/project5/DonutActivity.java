@@ -166,6 +166,7 @@ public class DonutActivity extends AppCompatActivity {
                                 dialog.dismiss();
                             }
                             catch (Exception e){
+
                             }
                         }
                     });

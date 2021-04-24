@@ -130,8 +130,11 @@ public class CoffeeActivity extends AppCompatActivity {
                         try {
                             currentOrder.remove(index);
                             coffeeList.remove(index);
+
                             dataAdapter3.notifyDataSetChanged();
+                            coffeeLW.setAdapter(dataAdapter3);
                             updatePrice();
+
                             Context context = getApplicationContext();
 
                             Toast toast = Toast.makeText(context, "Removed item.", Toast.LENGTH_SHORT);

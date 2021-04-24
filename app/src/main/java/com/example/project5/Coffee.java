@@ -27,6 +27,7 @@ public class Coffee extends MenuItem implements Customizable, Serializable {
     final int MILK = 2;
     final int CARAMEL = 3;
     final int WHIPPED_CREME = 4;
+    final int ADDONS_NUM = 5;
 
     int size;
     String[] addOns = new String[5];
@@ -121,7 +122,7 @@ public class Coffee extends MenuItem implements Customizable, Serializable {
         }
 
         if(quantity > 1 || quantity <= 0) message += "s";
-        for(int i = 0; i < 5; i++) {
+        for(int i = 0; i < ADDONS_NUM; i++) {
             String tempMessage = "";
             if ((addOns[i] == null)) {
                 continue;

@@ -45,7 +45,7 @@ public class CoffeeActivity extends Activity {
     RadioButton tallSize;
     RadioButton grandeSize;
     RadioButton ventiSize;
-    List<String> coffeeList = new ArrayList<String>();
+    List<String> coffeeList = new ArrayList<>();
     int index;
     ArrayAdapter<String> dataAdapter3;
     TextView priceTV;
@@ -63,28 +63,28 @@ public class CoffeeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coffee);
         rg = findViewById(R.id.coffeeSize);
-        creamCB =  (CheckBox) findViewById(R.id.creamCB);
-        milkCB = (CheckBox) findViewById(R.id.milkCB);
-        syrupCB =  (CheckBox) findViewById(R.id.syrupCB);
-        caramelCB = (CheckBox) findViewById(R.id.caramelCB);
-        whippedcremeCB = (CheckBox) findViewById(R.id.whippedcremeCB);
+        creamCB =  findViewById(R.id.creamCB);
+        milkCB = findViewById(R.id.milkCB);
+        syrupCB =  findViewById(R.id.syrupCB);
+        caramelCB = findViewById(R.id.caramelCB);
+        whippedcremeCB = findViewById(R.id.whippedcremeCB);
         priceTV = findViewById(R.id.priceTV2);
         quantitySpinner =  findViewById(R.id.quantitySpinner);
-        shortSize = (RadioButton) findViewById(R.id.shortCB);
-        tallSize = (RadioButton) findViewById(R.id.tallCB);
-        grandeSize = (RadioButton) findViewById(R.id.grandeCB);
-        ventiSize = (RadioButton) findViewById(R.id.ventiCB);
+        shortSize = findViewById(R.id.shortCB);
+        tallSize = findViewById(R.id.tallCB);
+        grandeSize = findViewById(R.id.grandeCB);
+        ventiSize = findViewById(R.id.ventiCB);
         quantitySpinner = findViewById(R.id.quantitySpinner);
         currentOrder = (Order)getIntent().getSerializableExtra("ORDER");
         current = currentOrder.getItems();
-        List<String> quantities = new ArrayList<String>();
+        List<String> quantities = new ArrayList<>();
         quantities.add("1");
         quantities.add("2");
         quantities.add("3");
         quantities.add("4");
         quantities.add("5");
         quantities.add("6");
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, quantities);
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         quantitySpinner.setPrompt("Select a Quantity");
@@ -94,7 +94,7 @@ public class CoffeeActivity extends Activity {
         for(int i = 0; i < currentOrder.getItemCount(); i++){
             coffeeList.add(current[i].toString());
         }
-        dataAdapter3 = new ArrayAdapter<String>(this,
+        dataAdapter3 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, coffeeList);
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
         coffeeLW.setAdapter(dataAdapter3);
@@ -137,7 +137,6 @@ public class CoffeeActivity extends Activity {
                             dialog.dismiss();
                         }
                         catch (Exception e){
-                            System.out.println("Error here" + e);
                         }
                     }
                 });
@@ -154,7 +153,7 @@ public class CoffeeActivity extends Activity {
 
                         // Do nothing
                         dialog.dismiss();
-                        return;
+
                     }
                 });
                 AlertDialog alert = alertDialog.create();
@@ -223,7 +222,7 @@ public class CoffeeActivity extends Activity {
 
             Toast toast = Toast.makeText(context, "Coffee added.", Toast.LENGTH_SHORT);
             toast.show();
-            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
+            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<>(this,
                     android.R.layout.simple_spinner_item, coffeeList);
             dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
             coffeeLW.setAdapter(dataAdapter3);

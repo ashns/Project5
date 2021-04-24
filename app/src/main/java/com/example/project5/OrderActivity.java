@@ -28,7 +28,7 @@ public class OrderActivity extends Activity {
     StoreOrders store;
     MenuItem[] current;
     ListView orderLV;
-    List<String> orders = new ArrayList<String>();
+    List<String> orders = new ArrayList<>();
     TextView priceTV;
     ArrayAdapter<String> dataAdapter3;
     DecimalFormat usd = new DecimalFormat("#.##");
@@ -49,12 +49,12 @@ public class OrderActivity extends Activity {
         priceTV = findViewById(R.id.textView2);
 
 
-        orderLV = (ListView)findViewById(R.id.orderList);
+        orderLV = findViewById(R.id.orderList);
         for(int i = 0; i < current.length; i++){
             if(current[i] != null)
                 orders.add(current[i].toString());
         }
-        dataAdapter3 = new ArrayAdapter<String>(this,
+        dataAdapter3 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, orders);
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
         orderLV.setAdapter(dataAdapter3);
@@ -115,7 +115,6 @@ public class OrderActivity extends Activity {
 
                         // Do nothing
                         dialog.dismiss();
-                        return;
                     }
                 });
                 AlertDialog alert = alertDialog.create();

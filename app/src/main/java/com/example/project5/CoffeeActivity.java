@@ -8,11 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AlertDialog;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The activity class responds to all input from the coffee screen with appropriate
+ * calls to methods in other classes.
+ * Provides client methods: onCreate, pressOrder, returnToMain, updatePrice
+ * @author Ashley Stankovits, Matthew Walker
+ */
 public class CoffeeActivity extends Activity {
 
     int size;
@@ -38,6 +43,13 @@ public class CoffeeActivity extends Activity {
     TextView priceTV;
 
 
+    /**
+     * This method instantiates all relevant things when the Coffee
+     * screen is opened up from main. This includes identifying
+     * all buttons and features from the UI in this code, as well
+     * as setting up spinners and onClick listeners.
+     * @param savedInstanceState which is save data from this screen
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +66,6 @@ public class CoffeeActivity extends Activity {
         tallSize = (RadioButton) findViewById(R.id.tallCB);
         grandeSize = (RadioButton) findViewById(R.id.grandeCB);
         ventiSize = (RadioButton) findViewById(R.id.ventiCB);
-        //quantitySpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
         quantitySpinner = findViewById(R.id.quantitySpinner);
         currentOrder = (Order)getIntent().getSerializableExtra("ORDER");
         current = currentOrder.getItems();
@@ -72,16 +83,24 @@ public class CoffeeActivity extends Activity {
         quantitySpinner.setAdapter(dataAdapter2);
 
         coffeeLW = findViewById(R.id.coffeeLW);
-        for(int i = 0; i<currentOrder.getItemCount(); i++){
+        for(int i = 0; i < currentOrder.getItemCount(); i++){
             coffeeList.add(current[i].toString());
         }
         dataAdapter3 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, coffeeList);
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
         coffeeLW.setAdapter(dataAdapter3);
-       // priceTV.setText("Price: $" + usd.format(currentOrder.orderPrice()));
         coffeeLW.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
+            /**
+             * This is a listener for when the coffee ListView is clicked.
+             * An alert box then pops up asking to confirm the deletion
+             * of an item from the listview.
+             * @param parent which is the parent AdapterView
+             * @param view the open screen
+             * @param position which is the location in the list that is clicked
+             * @param id of the listview clicked item
+             */
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 index = position;
@@ -90,6 +109,13 @@ public class CoffeeActivity extends Activity {
                 alertDialog.setMessage("Would you like to delete this item?");
                 alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
+                    /**
+                     * This is a listener for the "yes" button on the
+                     * dialog box which confirms deletion of an item
+                     * from the listview.
+                     * @param dialog which is the dialog box clicked
+                     * @param which which is the selected answer.
+                     */
                     public void onClick(DialogInterface dialog, int which) {
                         try {
                             currentOrder.remove(index);
@@ -110,6 +136,11 @@ public class CoffeeActivity extends Activity {
 
                 alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
 
+                    /**
+                     * This is a listener for the "no" option on the dialog box
+                     * @param dialog which is the corresponding dialog box
+                     * @param which which is the answer selected
+                     */
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -138,7 +169,7 @@ public class CoffeeActivity extends Activity {
                 size = 1;
             }
             else if(tallSize.isChecked()){
-               size = 2;
+                size = 2;
             }
             else if(grandeSize.isChecked()){
                 size = 3;
@@ -206,7 +237,11 @@ public class CoffeeActivity extends Activity {
         }
     }
 
-
+    /**
+     * This method returns the user to the main menu when
+     * they click the corresponding menu button
+     * @param view which is the clicking of the button
+     */
     public void returnToMain(View view){
         Intent intent = new Intent();
         intent.putExtra("ORDER", currentOrder);

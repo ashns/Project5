@@ -48,16 +48,13 @@ public class StoreOrderActivity extends AppCompatActivity {
         ordersLV = findViewById(R.id.ordersList);
         for(int i = 0; i < current.length; i++){
             if(current[i] != null) {
-                currOrder = current[i].printArray();
-                for(int j = 0; j < currOrder.size(); j++) {
-                    orders.add(currOrder.get(j) + System.lineSeparator());
-                }
+                orders.add(current[i].print());
             }
 
         }
         dataAdapter3 = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, orders);
-        dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                android.R.layout.simple_list_item_1, orders);
+        dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_2);
         ordersLV.setAdapter(dataAdapter3);
 
         ordersLV.setOnItemClickListener(new AdapterView.OnItemClickListener(){

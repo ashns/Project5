@@ -153,7 +153,7 @@ public class Order implements Customizable, Serializable {
      */
     public String print(){
         String order = "";
-        order += "Order #"+getNumber();
+        order += "Order #"+getNumber() + "\n";
         for(int i = 0; i < itemCount; i++){
             order += (items[i].toString() + "\n");
         }
@@ -166,22 +166,6 @@ public class Order implements Customizable, Serializable {
         }
         return order;
     }
-
-    public ArrayList<String> printArray(){
-        ArrayList<String> order = new ArrayList();
-        order.add("Order #"+getNumber());
-        for(int i = 0; i < itemCount; i++){
-            order.add(items[i].toString() + "\n");
-        }
-        try {
-            double price = orderPrice();
-            order.add("\n---------------\nTotal Price: $" + usd.format(price * NJ_TAX) + "\n---------------------------------");
-        }
-        catch(Exception e){
-
-        }
-        return order;
-        }
 
     /**
      * This method returns the array that contains all the items from

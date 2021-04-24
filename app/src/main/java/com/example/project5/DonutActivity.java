@@ -20,8 +20,12 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
-
+/**
+ * The controller class responds to all input from the donut UI with appropriate
+ * calls to methods in other classes.
+ * Provides client methods: onCreate, addDonut, updatePrice
+ * @author Ashley Stankovits, Matthew Walker
+ */
 public class DonutActivity extends Activity {
     final int YEAST_DONUT = 1;
     final int CAKE_DONUT = 2;
@@ -45,10 +49,14 @@ public class DonutActivity extends Activity {
     ArrayAdapter<String> dataAdapter3;
     int index;
 
-
-
-
-        @Override
+    /**
+     * This method instantiates all relevant things when the Donut
+     * screen is opened up from main. This includes identifying
+     * all buttons and features from the UI in this code, as well
+     * as setting up spinners and onClick listeners.
+     * @param savedInstanceState which is save data from this screen
+     */
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donut);
@@ -103,6 +111,12 @@ public class DonutActivity extends Activity {
         donutLW.setAdapter(dataAdapter3);
 
         retMain.setOnClickListener(new View.OnClickListener() {
+
+            /**
+             * This method sends the current order information
+             * out through an intent
+             * @param view which is the return to main button
+             */
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -113,6 +127,15 @@ public class DonutActivity extends Activity {
         });
             donutLW.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
+                /**
+                 * This is a listener for when the donutListView is clicked.
+                 * An alert box then pops up asking to confirm the deletion
+                 * of an item from the listview.
+                 * @param parent which is the parent AdapterView
+                 * @param view the open screen
+                 * @param position which is the location in the list that is clicked
+                 * @param id of the listview clicked item
+                 */
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     index = position;
@@ -121,6 +144,13 @@ public class DonutActivity extends Activity {
                     alertDialog.setMessage("Would you like to delete this item?");
                     alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
+                        /**
+                         * This is a listener for the "yes" button on the
+                         * dialog box which confirms deletion of an item
+                         * from the listview.
+                         * @param dialog which is the dialog box clicked
+                         * @param which which is the selected answer.
+                         */
                         public void onClick(DialogInterface dialog, int which) {
                             try {
                                 currentOrder.remove(index);
@@ -141,6 +171,11 @@ public class DonutActivity extends Activity {
 
                     alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
 
+                        /**
+                         * This is a listener for the "no" option on the dialog box
+                         * @param dialog which is the corresponding dialog box
+                         * @param which which is the answer selected
+                         */
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
@@ -158,10 +193,14 @@ public class DonutActivity extends Activity {
             updatePrice();
     }
 
-
+    /**
+     * This method created an instance of donut and adds it to the user's
+     * order upon clicking the "order button".
+     * @param view which is the user clicking the order button
+     *                    in the donut gui.
+     */
     public void addDonut(View view) {
         try {
-            onCheckedChanged(rg, rg.getCheckedRadioButtonId());
             String flavor = flavorSpinner.getSelectedItem().toString();
             quantity = Integer.parseInt((String) quantitySpinner.getSelectedItem());
             if(yeastRB.isChecked()) {
@@ -203,42 +242,6 @@ public class DonutActivity extends Activity {
         }
     }
 
-
-
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch(checkedId){
-            case R.id.radioButton:
-                type = YEAST_DONUT;
-                break;
-            case R.id.radioButton2:
-                type = CAKE_DONUT;
-                break;
-            case R.id.radioButton3:
-                type = DONUT_HOLE;
-                break;
-        }
-    }
-
-    /**
-     * This method removes an item from the order list when a user clicks
-     * the remove item button and the updates the ListView to also remove
-     * that item.
-     * @param view which is the user clicking the remove button.
-     */
-    public void removeItem(View view){
-        try {
-            int index = donutLW.getSelectedItemPosition();
-            currentOrder.remove(index);
-            donutList.remove(index);
-            dataAdapter3.notifyDataSetChanged();
-                updatePrice();
-            donutLW.getSelectedItem();
-        }
-        catch (Exception e){
-
-
-        }
-    }
 
     /**
      * This method is used to update the price in the label to the current

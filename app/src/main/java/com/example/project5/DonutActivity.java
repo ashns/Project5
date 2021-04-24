@@ -44,7 +44,7 @@ public class DonutActivity extends Activity {
     RadioButton cakeRB;
     RadioButton dhRB;
     TextView priceTV;
-    List<String> donutList = new ArrayList<String>();
+    List<String> donutList = new ArrayList<>();
     Button retMain;
     ArrayAdapter<String> dataAdapter3;
     int index;
@@ -64,14 +64,14 @@ public class DonutActivity extends Activity {
          flavorSpinner = findViewById(R.id.spinner2);
          donutLW = findViewById(R.id.donutLW);
          rg = findViewById(R.id.donutTypeRB);
-         yeastRB = (RadioButton) findViewById(R.id.radioButton);
-         cakeRB = (RadioButton) findViewById(R.id.radioButton2);
-         dhRB = (RadioButton) findViewById(R.id.radioButton3);
+         yeastRB = findViewById(R.id.radioButton);
+         cakeRB = findViewById(R.id.radioButton2);
+         dhRB = findViewById(R.id.radioButton3);
          priceTV = findViewById(R.id.priceTV);
          retMain = findViewById(R.id.button9);
                          currentOrder = (Order)getIntent().getSerializableExtra("ORDER");
         // Spinner Drop down elements
-        List<String> donutFlavors = new ArrayList<String>();
+        List<String> donutFlavors = new ArrayList<>();
         donutFlavors.add("Vanilla");
         donutFlavors.add("Chocolate");
         donutFlavors.add("Strawberry");
@@ -85,14 +85,14 @@ public class DonutActivity extends Activity {
         // attaching data adapter to spinner
         flavorSpinner.setAdapter(dataAdapter);
 
-        List<String> quantities = new ArrayList<String>();
+        List<String> quantities = new ArrayList<>();
         quantities.add("1");
         quantities.add("2");
         quantities.add("3");
         quantities.add("4");
         quantities.add("5");
         quantities.add("6");
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, quantities);
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         quantitySpinner.setPrompt("Select a Quantity");
@@ -105,7 +105,7 @@ public class DonutActivity extends Activity {
             if(current[i] != null)
             donutList.add(current[i].toString());
         }
-        dataAdapter3 = new ArrayAdapter<String>(this,
+        dataAdapter3 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, donutList);
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
         donutLW.setAdapter(dataAdapter3);
@@ -181,7 +181,6 @@ public class DonutActivity extends Activity {
 
                             // Do nothing
                             dialog.dismiss();
-                            return;
                         }
                     });
                     AlertDialog alert = alertDialog.create();

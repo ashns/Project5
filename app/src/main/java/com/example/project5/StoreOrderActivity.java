@@ -28,7 +28,7 @@ public class StoreOrderActivity extends Activity {
     StoreOrders store;
     Order[] current;
     ListView ordersLV;
-    List<String> orders = new ArrayList<String>();
+    List<String> orders = new ArrayList<>();
     TextView priceTV;
     ArrayAdapter<String> dataAdapter3;
     DecimalFormat usd = new DecimalFormat("#.##");
@@ -37,7 +37,7 @@ public class StoreOrderActivity extends Activity {
     /**
      * This method initializes all views and listeners on this
      * screen.
-     * @param savedInstanceState
+     * @param savedInstanceState which is any saved data from the app
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +47,12 @@ public class StoreOrderActivity extends Activity {
         current = store.getOrders();
         priceTV = findViewById(R.id.textView2);
 
-        ordersLV = (ListView)findViewById(R.id.ordersList);
+        ordersLV = findViewById(R.id.ordersList);
         for(int i = 0; i < current.length; i++){
             if(current[i] != null)
                 orders.add(current[i].print());
         }
-        dataAdapter3 = new ArrayAdapter<String>(this,
+        dataAdapter3 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, orders);
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
         ordersLV.setAdapter(dataAdapter3);
@@ -113,7 +113,6 @@ public class StoreOrderActivity extends Activity {
 
                         // Do nothing
                         dialog.dismiss();
-                        return;
                     }
                 });
                 AlertDialog alert = alertDialog.create();

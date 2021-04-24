@@ -76,7 +76,7 @@ public class CoffeeActivity extends Activity {
                 android.R.layout.simple_spinner_item, coffeeList);
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
         coffeeLW.setAdapter(dataAdapter3);
-        priceTV.setText("Price: $" + usd.format(currentOrder.orderPrice()));
+       // priceTV.setText("Price: $" + usd.format(currentOrder.orderPrice()));
         coffeeLW.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
@@ -172,10 +172,7 @@ public class CoffeeActivity extends Activity {
             currentOrder.add(newCoffee);
             coffeeList.add(newCoffee.toString());
             updatePrice();
-            ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
-                    android.R.layout.simple_spinner_item, coffeeList);
-            dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
-            coffeeLW.setAdapter(dataAdapter3);
+            dataAdapter3.notifyDataSetChanged();
 
         }catch(Exception e){
             AlertDialog alertDialog = new AlertDialog.Builder(CoffeeActivity.this).create();

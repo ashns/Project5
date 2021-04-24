@@ -23,11 +23,11 @@ import java.util.List;
  */
 public class StoreOrderActivity extends Activity {
 
-    Order currentOrder;
+
     int index;
     StoreOrders store;
-    MenuItem[] current;
-    ListView orderLV;
+    Order[] current;
+    ListView ordersLV;
     List<String> orders = new ArrayList<String>();
     TextView priceTV;
     ArrayAdapter<String> dataAdapter3;
@@ -44,19 +44,20 @@ public class StoreOrderActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_orders);
         store = (StoreOrders)getIntent().getSerializableExtra("STORE_ORDER");
+        current = store.getOrders();
         priceTV = findViewById(R.id.textView2);
 
-        orderLV = (ListView)findViewById(R.id.orderList);
+        ordersLV = (ListView)findViewById(R.id.ordersList);
         for(int i = 0; i < current.length; i++){
             if(current[i] != null)
-                orders.add(current[i].toString());
+                orders.add(current[i].print());
         }
         dataAdapter3 = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, orders);
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
-        orderLV.setAdapter(dataAdapter3);
+        ordersLV.setAdapter(dataAdapter3);
 
-        orderLV.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        ordersLV.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             /**
              * This is a listener for when the store order ListView is clicked.
@@ -84,7 +85,7 @@ public class StoreOrderActivity extends Activity {
                      */
                     public void onClick(DialogInterface dialog, int which) {
                         try {
-                            currentOrder.remove(index);
+                            store.remove(index);
                             orders.remove(index);
                             dataAdapter3.notifyDataSetChanged();
 

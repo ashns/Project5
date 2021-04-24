@@ -100,7 +100,6 @@ public class OrderActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                         catch (Exception e){
-                            System.out.println("Error here" + e);
                         }
                     }
                 });

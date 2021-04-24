@@ -139,6 +139,7 @@ public class CoffeeActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                         catch (Exception e){
+
                         }
                     }
                 });

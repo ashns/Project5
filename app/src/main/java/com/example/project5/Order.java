@@ -175,6 +175,13 @@ public class Order implements Customizable, Serializable {
         return items;
     }
 
+    public MenuItem getItemAt(int index){
+        if (index < itemCount)
+            return items[index];
+        else
+            return null;
+    }
+
     /**
      * This method calculates the total price for all items in the order.
      * @return a double which contains the total price.

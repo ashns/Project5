@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import java.util.ArrayList;
 import java.util.List;
+
+
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity;
  * @author Ashley Stankovits, Matthew Walker
  */
 public class StoreOrderActivity extends AppCompatActivity {
-
 
     int index;
     StoreOrders store;
@@ -48,7 +49,7 @@ public class StoreOrderActivity extends AppCompatActivity {
         ordersLV = findViewById(R.id.ordersList);
         for(int i = 0; i < current.length; i++){
             if(current[i] != null)
-                orders.add(current[i].print());
+                orders.add(current[i].toString());
         }
         dataAdapter3 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, orders);
@@ -89,7 +90,7 @@ public class StoreOrderActivity extends AppCompatActivity {
 
                             Context context = getApplicationContext();
 
-                            Toast toast = Toast.makeText(context, "Removed item.", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(context, "Removed order.", Toast.LENGTH_SHORT);
                             toast.show();
                             dialog.dismiss();
                         }

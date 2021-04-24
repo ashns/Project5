@@ -12,8 +12,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import java.util.ArrayList;
 import java.util.List;
-
-
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,6 +30,7 @@ public class StoreOrderActivity extends AppCompatActivity {
     List<String> orders = new ArrayList<>();
     TextView priceTV;
     ArrayAdapter<String> dataAdapter3;
+    ArrayList<String> currOrder;
     /**
      * This method initializes all views and listeners on this
      * screen.
@@ -48,8 +47,13 @@ public class StoreOrderActivity extends AppCompatActivity {
 
         ordersLV = findViewById(R.id.ordersList);
         for(int i = 0; i < current.length; i++){
-            if(current[i] != null)
-                orders.add(current[i].toString());
+            if(current[i] != null) {
+                currOrder = current[i].printArray();
+                for(int j = 0; j < currOrder.size(); j++) {
+                    orders.add(currOrder.get(j) + System.lineSeparator());
+                }
+            }
+
         }
         dataAdapter3 = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, orders);
@@ -95,7 +99,6 @@ public class StoreOrderActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                         catch (Exception e){
-                            System.out.println("Error here" + e);
                         }
                     }
                 });

@@ -98,7 +98,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/coffeeLW" android:clickable="true" android:layout_marginBottom="19dp"
             app:layout_constraintBottom_toTopOf="@+id/button2" app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.089"/>
+            app:layout_constraintVertical_bias="0.089" android:inputType="textMultiLine"/>
     <Spinner
             android:layout_width="123dp"
             android:layout_height="31dp" android:id="@+id/quantitySpinner"

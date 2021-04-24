@@ -2,6 +2,7 @@ package com.example.project5;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 /**
  * This class is responsible for the array which holds the user order.
@@ -165,6 +166,22 @@ public class Order implements Customizable, Serializable {
         }
         return order;
     }
+
+    public ArrayList<String> printArray(){
+        ArrayList<String> order = new ArrayList();
+        order.add("Order #"+getNumber());
+        for(int i = 0; i < itemCount; i++){
+            order.add(items[i].toString() + "\n");
+        }
+        try {
+            double price = orderPrice();
+            order.add("\n---------------\nTotal Price: $" + usd.format(price * NJ_TAX) + "\n---------------------------------");
+        }
+        catch(Exception e){
+
+        }
+        return order;
+        }
 
     /**
      * This method returns the array that contains all the items from

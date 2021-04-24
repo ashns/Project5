@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import android.content.Intent;
 
 /**
  * The controller class responds to all input from the store order UI with appropriate
@@ -137,7 +138,9 @@ public class StoreOrderActivity extends Activity {
      * @param view which is the return button being clicked.
      */
     public void returnToMain(View view){
-        
+        Intent intent = new Intent();
+        intent.putExtra("STORE_ORDER", store);
+        setResult(RESULT_OK, intent);
         finish();
     }
 

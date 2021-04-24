@@ -1,6 +1,7 @@
 package com.example.project5;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -119,6 +120,10 @@ public class DonutActivity extends Activity {
                                 donutList.remove(index);
                                 dataAdapter3.notifyDataSetChanged();
                                 updatePrice();
+                                Context context = getApplicationContext();
+
+                                Toast toast = Toast.makeText(context, "Removed item.", Toast.LENGTH_SHORT);
+                                toast.show();
                                 dialog.dismiss();
                             }
                             catch (Exception e){
@@ -179,6 +184,10 @@ public class DonutActivity extends Activity {
             dataAdapter3.notifyDataSetChanged();
 
             updatePrice();
+            Context context = getApplicationContext();
+
+            Toast toast = Toast.makeText(context, "Donut added.", Toast.LENGTH_SHORT);
+            toast.show();
 
         }catch(Exception e) {
 

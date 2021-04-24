@@ -19,17 +19,17 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="80dp" android:layout_marginStart="80dp" android:layout_marginBottom="9dp"
-            app:layout_constraintBottom_toTopOf="@+id/_dynamic" android:layout_marginEnd="81dp"
-            android:layout_marginRight="81dp" app:layout_constraintEnd_toEndOf="parent"
-            android:contentDescription="image of coffee" android:background="@drawable/tempcoffee"/>
+            app:layout_constraintBottom_toTopOf="@+id/_dynamic" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/coffee" android:background="@drawable/tempcoffee"/>
     <RadioGroup
             android:layout_width="149dp"
             android:layout_height="134dp"
-            android:layout_marginTop="32dp"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="26dp" android:layout_marginStart="26dp" android:layout_marginBottom="26dp"
-            app:layout_constraintBottom_toTopOf="@+id/creamCB" app:layout_constraintEnd_toStartOf="@+id/_dynamic"
-            android:layout_marginEnd="11dp" android:layout_marginRight="11dp" android:id="@+id/coffeeSize">
+            android:id="@+id/coffeeSize"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.061" android:layout_marginBottom="448dp"
+            app:layout_constraintVertical_bias="1.0">
         <RadioButton
                 android:text="@string/shortSize"
                 android:layout_width="match_parent"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content" android:id="@+id/milkCB"
             app:layout_constraintTop_toBottomOf="@+id/coffeeSize" app:layout_constraintStart_toEndOf="@+id/creamCB"
             app:layout_constraintBottom_toTopOf="@+id/caramelCB" app:layout_constraintEnd_toStartOf="@+id/_dynamic"
-            android:layout_marginEnd="28dp" android:layout_marginRight="28dp" android:layout_marginTop="30dp"
+            android:layout_marginEnd="28dp" android:layout_marginRight="28dp"
             android:layout_marginBottom="5dp"/>
     <CheckBox
             android:text="@string/syrup"
@@ -69,7 +69,7 @@
             app:layout_constraintTop_toBottomOf="@+id/creamCB" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="26dp" android:layout_marginStart="26dp"
             app:layout_constraintBottom_toTopOf="@+id/whippedcremeCB" app:layout_constraintEnd_toStartOf="@+id/milkCB"
-            android:layout_marginEnd="6dp" android:layout_marginRight="6dp" android:layout_marginTop="10dp"/>
+            android:layout_marginEnd="6dp" android:layout_marginRight="6dp"/>
     <CheckBox
             android:text="@string/caramel"
             android:layout_width="wrap_content"
@@ -86,7 +86,7 @@
             android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
             app:layout_constraintBottom_toTopOf="@+id/quantitySpinner"
             app:layout_constraintEnd_toStartOf="@+id/_dynamic"
-            android:layout_marginEnd="27dp" android:layout_marginRight="27dp" android:layout_marginTop="10dp"/>
+            android:layout_marginEnd="27dp" android:layout_marginRight="27dp"/>
     <ListView
             android:layout_width="214dp"
             android:layout_height="332dp" android:layout_marginLeft="11dp"

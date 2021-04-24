@@ -1,6 +1,7 @@
 package com.example.project5;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -93,6 +94,10 @@ public class CoffeeActivity extends Activity {
                             coffeeList.remove(index);
                             dataAdapter3.notifyDataSetChanged();
                             updatePrice();
+                            Context context = getApplicationContext();
+
+                            Toast toast = Toast.makeText(context, "Removed item.", Toast.LENGTH_SHORT);
+                            toast.show();
                             dialog.dismiss();
                         }
                         catch (Exception e){
@@ -172,6 +177,10 @@ public class CoffeeActivity extends Activity {
             currentOrder.add(newCoffee);
             coffeeList.add(newCoffee.toString());
             updatePrice();
+            Context context = getApplicationContext();
+
+            Toast toast = Toast.makeText(context, "Coffee added.", Toast.LENGTH_SHORT);
+            toast.show();
             ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<String>(this,
                     android.R.layout.simple_spinner_item, coffeeList);
             dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);

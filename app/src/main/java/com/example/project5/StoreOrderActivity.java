@@ -1,6 +1,5 @@
 package com.example.project5;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;

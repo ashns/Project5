@@ -59,7 +59,7 @@ public class OrderActivity extends Activity {
             returnToMain(view);
         }
         else{
-            Toast warn = Toast.makeText("Cannot place an empty order.");
+        //    Toast warn = Toast.makeText("Cannot place an empty order.");
 
         }
 

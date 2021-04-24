@@ -47,7 +47,7 @@ public class CoffeeActivity extends Activity {
         syrupCB =  (CheckBox) findViewById(R.id.syrupCB);
         caramelCB = (CheckBox) findViewById(R.id.caramelCB);
         whippedcremeCB = (CheckBox) findViewById(R.id.whippedcremeCB);
-        priceTV = findViewById(R.id.priceTV);
+        priceTV = findViewById(R.id.priceTV2);
         quantitySpinner =  findViewById(R.id.quantitySpinner);
         shortSize = (RadioButton) findViewById(R.id.shortCB);
         tallSize = (RadioButton) findViewById(R.id.tallCB);

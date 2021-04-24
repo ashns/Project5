@@ -50,7 +50,8 @@ public class StoreOrderActivity extends AppCompatActivity {
         ordersLV = findViewById(R.id.ordersList);
         for(int i = 0; i < current.length; i++){
             if(current[i] != null) {
-                orders.add(current[i].print()+"$"+usd.format(current[i].orderPrice()+current[i].calculateSalesTax()));
+                orders.add(current[i].print()+"$"+usd.format(current[i].orderPrice()
+                        +current[i].calculateSalesTax()));
             }
 
         }

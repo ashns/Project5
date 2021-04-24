@@ -97,8 +97,8 @@ public class CoffeeActivity extends AppCompatActivity {
             coffeeList.add(current[i].toString());
         }
         dataAdapter3 = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, coffeeList);
-        dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                android.R.layout.simple_list_item_1, coffeeList);
+        dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_2);
         coffeeLW.setAdapter(dataAdapter3);
         coffeeLW.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
@@ -225,8 +225,8 @@ public class CoffeeActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(context, "Coffee added.", Toast.LENGTH_SHORT);
             toast.show();
             ArrayAdapter<String> dataAdapter3 = new ArrayAdapter<>(this,
-                    android.R.layout.simple_spinner_item, coffeeList);
-            dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_1);
+                    android.R.layout.simple_list_item_1, coffeeList);
+            dataAdapter3.setDropDownViewResource(android.R.layout.simple_list_item_2);
             coffeeLW.setAdapter(dataAdapter3);
 
             dataAdapter3.notifyDataSetChanged();

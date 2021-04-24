@@ -105,16 +105,16 @@ public class Coffee extends MenuItem implements Customizable, Serializable {
         String message = "(" + quantity + ") " + " " ;
         switch (size){
             case SIZE_SHORT:
-                message += "short coffee";
+                message += "Short coffee";
                 break;
             case SIZE_TALL:
-                message += "tall coffee";
+                message += "Tall coffee";
                 break;
             case SIZE_GRANDE:
-                message += "grande coffee";
+                message += "Grande coffee";
                 break;
             case SIZE_VENTI:
-                message += "venti coffee";
+                message += "Venti coffee";
                 break;
             default:
                 message += "bagel";
@@ -127,10 +127,10 @@ public class Coffee extends MenuItem implements Customizable, Serializable {
                 continue;
             } else {
                 if (hasAddOns == false) {
-                    tempMessage += " with " + addOns[i];
+                    tempMessage += " with\n\t+" + addOns[i];
                     hasAddOns = true;
                 } else {
-                    tempMessage += ", " + addOns[i];
+                    tempMessage += "\n\t + " + addOns[i];
                 }
             }
            message += tempMessage;

@@ -64,6 +64,7 @@ public class CoffeeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coffee);
+        setTitle("Order coffee");
         rg = findViewById(R.id.coffeeSize);
         creamCB =  findViewById(R.id.creamCB);
         milkCB = findViewById(R.id.milkCB);

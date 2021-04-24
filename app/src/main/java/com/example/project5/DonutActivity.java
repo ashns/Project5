@@ -61,6 +61,7 @@ public class DonutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Order donut");
         setContentView(R.layout.activity_donut);
          quantitySpinner = findViewById(R.id.spinner3);
          flavorSpinner = findViewById(R.id.spinner2);

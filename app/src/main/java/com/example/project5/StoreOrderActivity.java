@@ -15,6 +15,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * The controller class responds to all input from the store order UI with appropriate
@@ -22,7 +23,7 @@ import android.content.Intent;
  * Provides client methods: onCreate, onDestroy, returnToMain
  * @author Ashley Stankovits, Matthew Walker
  */
-public class StoreOrderActivity extends Activity {
+public class StoreOrderActivity extends AppCompatActivity {
 
 
     int index;
@@ -32,9 +33,6 @@ public class StoreOrderActivity extends Activity {
     List<String> orders = new ArrayList<>();
     TextView priceTV;
     ArrayAdapter<String> dataAdapter3;
-    DecimalFormat usd = new DecimalFormat("#.##");
-
-
     /**
      * This method initializes all views and listeners on this
      * screen.
@@ -44,6 +42,7 @@ public class StoreOrderActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_orders);
+        setTitle("Manage orders");
         store = (StoreOrders)getIntent().getSerializableExtra("STORE_ORDER");
         current = store.getOrders();
         priceTV = findViewById(R.id.textView2);

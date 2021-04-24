@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,7 @@ import java.util.List;
  * Provides client methods: onCreate, returnToMain, pushOrder, updatePrice
  * @author Ashley Stankovits, Matthew Walker
  */
-public class OrderActivity extends Activity {
+public class OrderActivity extends AppCompatActivity {
     Order currentOrder;
     int index;
     StoreOrders store;
@@ -43,6 +45,7 @@ public class OrderActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
+        setTitle("Review order");
         currentOrder = (Order)getIntent().getSerializableExtra("ORDER");
         current = currentOrder.getItems();
         store = (StoreOrders)getIntent().getSerializableExtra("STORE_ORDER");

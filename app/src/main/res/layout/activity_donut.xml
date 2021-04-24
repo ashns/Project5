@@ -8,19 +8,19 @@
     <ImageView
             android:layout_width="341dp"
             android:layout_height="133dp"
-            app:srcCompat="@drawable/tempdonut" android:id="@+id/imageView4"
+            android:id="@+id/imageView4"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.028"
             android:contentDescription="@string/donut" android:visibility="visible"
-            tools:srcCompat="@drawable/tempdonut" android:background="@drawable/tempdonut"/>
+            android:background="@drawable/tempdonut"/>
     <RadioGroup
             android:layout_width="132dp"
             android:layout_height="105dp"
-            android:id="@+id/donutTypeRB" android:layout_marginTop="52dp"
+            android:id="@+id/donutTypeRB" android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@+id/imageView4" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/donutLW"
-            app:layout_constraintHorizontal_bias="1.0" android:layout_marginRight="16dp"
+            app:layout_constraintHorizontal_bias="0.941" android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp">
         <RadioButton
                 android:text="@string/yeast"
@@ -38,7 +38,7 @@
     <ListView
             android:layout_width="246dp"
             android:layout_height="340dp"
-            android:id="@+id/donutLW" android:layout_marginTop="52dp"
+            android:id="@+id/donutLW" android:layout_marginTop="12dp"
             app:layout_constraintTop_toBottomOf="@+id/imageView4" app:layout_constraintEnd_toEndOf="parent"/>
     <Spinner
             android:layout_width="145dp"

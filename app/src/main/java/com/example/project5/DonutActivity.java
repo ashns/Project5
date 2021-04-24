@@ -16,6 +16,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ import java.util.List;
  * Provides client methods: onCreate, addDonut, updatePrice
  * @author Ashley Stankovits, Matthew Walker
  */
-public class DonutActivity extends Activity {
+public class DonutActivity extends AppCompatActivity {
     final int YEAST_DONUT = 1;
     final int CAKE_DONUT = 2;
     final int DONUT_HOLE = 3;

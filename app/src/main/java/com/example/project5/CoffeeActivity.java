@@ -16,6 +16,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.CheckBox;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ import java.util.List;
  * Provides client methods: onCreate, pressOrder, returnToMain, updatePrice
  * @author Ashley Stankovits, Matthew Walker
  */
-public class CoffeeActivity extends Activity {
+public class CoffeeActivity extends AppCompatActivity {
 
     int size;
     int quantity;

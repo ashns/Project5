@@ -15,22 +15,26 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="DonutActivity" android:parentActivityName=".MainActivity">
+        <activity android:name="DonutActivity"
+                  android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.CALL"/>
             </intent-filter>
         </activity>
-        <activity android:name="CoffeeActivity" android:parentActivityName=".MainActivity">
+        <activity android:name="CoffeeActivity"
+                  android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.CALL"/>
             </intent-filter>
         </activity>
-        <activity android:name="OrderActivity" android:parentActivityName=".MainActivity">
+        <activity android:name="OrderActivity"
+                  android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.CALL"/>
             </intent-filter>
         </activity>
-        <activity android:name="StoreOrderActivity" android:parentActivityName=".MainActivity">
+        <activity android:name="StoreOrderActivity"
+                  android:parentActivityName=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.CALL"/>
             </intent-filter>

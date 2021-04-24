@@ -216,7 +216,7 @@ public class CoffeeActivity extends AppCompatActivity {
             if (caramelCB.isChecked()) {
                 newCoffee.add("caramel");
             }
-            if (whippedcremeCB.isSelected()) {
+            if (whippedcremeCB.isChecked()) {
                 newCoffee.add("whipped creme");
             }
 

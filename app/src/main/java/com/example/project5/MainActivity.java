@@ -74,7 +74,12 @@ import android.widget.Button;
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
             switch (requestCode) {
-                case CALLED_DONUT: CALLED_COFFEE:
+                case CALLED_DONUT:
+                    if (resultCode == RESULT_OK) {
+                        currentOrder = (Order)data.getSerializableExtra("ORDER");
+                    }
+                    break;
+                case CALLED_COFFEE:
                     if (resultCode == RESULT_OK) {
                         currentOrder = (Order)data.getSerializableExtra("ORDER");
                     }
@@ -84,6 +89,7 @@ import android.widget.Button;
                         currentOrder = (Order)data.getSerializableExtra("ORDER");
                         currentStoreOrders = (StoreOrders)data.getSerializableExtra("STORE_ORDER");
                     }
+                    break;
             }
         }
     }

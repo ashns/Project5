@@ -56,6 +56,8 @@ public class CoffeeActivity extends Activity {
         ventiSize = (RadioButton) findViewById(R.id.ventiCB);
         //quantitySpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
         quantitySpinner = findViewById(R.id.quantitySpinner);
+        currentOrder = (Order)getIntent().getSerializableExtra("ORDER");
+        current = currentOrder.getItems();
         List<String> quantities = new ArrayList<String>();
         quantities.add("1");
         quantities.add("2");
@@ -121,7 +123,7 @@ public class CoffeeActivity extends Activity {
 
             }
         });
-
+        updatePrice();
     }
 
     /**

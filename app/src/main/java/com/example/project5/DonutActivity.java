@@ -147,6 +147,8 @@ public class DonutActivity extends Activity {
 
                 }
             });
+
+            updatePrice();
     }
 
 
